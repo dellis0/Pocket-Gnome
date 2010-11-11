@@ -6,17 +6,7 @@
 //  Copyright 2010 Savory Software, LLC. All rights reserved.
 //
 #import <Cocoa/Cocoa.h>
-
-typedef enum {
-	E_PLUGIN_LOADED,
-	E_PLUGIN_CONFIG,
-	E_PLAYER_DIED,
-	E_PLAYER_FOUND,
-	E_BOT_START,
-	E_BOT_STOP,
-	
-	E_MAX,
-} PG_EVENT_TYPE;
+#import "Event.h"
 
 @class LuaController;
 

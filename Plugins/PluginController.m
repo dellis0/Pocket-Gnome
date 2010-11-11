@@ -309,20 +309,23 @@
 
 	Plugin *plugin = [luaController loadPluginAtPath:path];
 	
+	PGLog(@"[Plugins] Loading %@", plugin);
+	
 	if(plugin != nil) {
 		[_plugins addObject:plugin];
 		
 		SEL selector = nil;
 		NSMutableArray *listeners = nil;
 		NSString *eventSelector = nil;
+		
 		// as we're loading this plugin, we want to search for some selectors
 		// loop through all known selectors
-		PGLog(@"[Plugins] Finding selectors for %@", [plugin name]);
+		//PGLog(@"[Plugins] Finding selectors for %@", [plugin name]);
 		for ( NSNumber *key in _eventSelectors ) {
 			eventSelector = [_eventSelectors objectForKey:key];
 			selector = NSSelectorFromString(eventSelector);
 			
-			NSLog(@" searching for %@", eventSelector);
+			//NSLog(@" searching for %@", eventSelector);
 			
 			// does the plugin respond to this exact selector?
 			if ( [plugin respondsToSelector:selector] ) {
@@ -332,13 +335,13 @@
 					[_eventListeners setObject:listeners forKey:eventSelector];
 				}
 				[listeners addObject:plugin];
-				NSLog(@"  found");
+				//NSLog(@"  found");
 			}
 			
 			// search for the selector w/no arguments
 			else if( [eventSelector hasSuffix:@":"] ) {
 				eventSelector = [eventSelector substringToIndex:[eventSelector length]-1];
-				NSLog(@" []searching for %@", eventSelector);
+				//NSLog(@" []searching for %@", eventSelector);
 				selector = NSSelectorFromString(eventSelector);
 				if ( [plugin respondsToSelector:selector] ) {
 					listeners = [_eventListeners valueForKey:eventSelector];
@@ -347,7 +350,7 @@
 						[_eventListeners setObject:listeners forKey:eventSelector];
 					}
 					[listeners addObject:plugin];
-					NSLog(@"  found");
+					//NSLog(@"  found");
 				}
 			}
 		}
@@ -382,7 +385,7 @@
 
 - (BOOL)performEvent:(PG_EVENT_TYPE)eventType withObject:(id)obj {
 	
-	PGLog(@"[Plugins] Firing event %d with object %@", eventType, obj);
+	PGLog(@"[Plugins] Firing event %d (%@) with object %@", eventType, [_eventSelectors objectForKey:[NSNumber numberWithInt:eventType]], obj);
 	
 	// find our selector
 	NSString *eventSelector = [_eventSelectors objectForKey:[NSNumber numberWithInt:eventType]];
@@ -409,7 +412,7 @@
 			// call individually so we can get any return values!
 			for ( id object in eventListeners ){
 				if ( ![self doSelector:selector onObject:object withObject:nil] ){
-					PGLog(@"[Plugins] Event %d cancelled by plugin %@ with object %@", eventType, object, obj);
+					PGLog(@"[Plugins] Event %d cancelled by plugin %@ with no object", eventType, object);
 					return NO;
 				}
 			}
@@ -423,7 +426,7 @@
 			// call individually so we can get any return values!
 			for ( id object in eventListeners ){
 				if ( ![self doSelector:selector onObject:object withObject:nil] ){
-					PGLog(@"[Plugins] Event %d cancelled by plugin %@ with object %@", eventType, object, obj);
+					PGLog(@"[Plugins] Event %d cancelled by plugin %@ with no object", eventType, object);
 					return NO;
 				}
 			}

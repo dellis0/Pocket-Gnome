@@ -15,7 +15,7 @@ function ePlayerFound(self, player)
 		
 		print("Class is " .. player:className())
 		
-		puts(wax.instance.methods(player))
+		--puts(wax.instance.methods(player))
 		
 		print("Player name: " .. tostring(player:name()))
 	end
@@ -34,7 +34,7 @@ function eBotStart(self)
 	
 	--DisplayError("No", "I don't want you to start!")
 	
-	DisplayError("No")
+	--DisplayError("No")
 
 	return NO;
 

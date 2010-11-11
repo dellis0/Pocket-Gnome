@@ -108,10 +108,6 @@
 		03685FA91103D73B001CE552 /* QuestTurnInAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03685FA71103D73B001CE552 /* QuestTurnInAction.xib */; };
 		03685FAD1103D768001CE552 /* QuestGrabActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03685FAC1103D768001CE552 /* QuestGrabActionController.m */; };
 		03685FB01103D77A001CE552 /* QuestTurnInActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03685FAF1103D77A001CE552 /* QuestTurnInActionController.m */; };
-		037E94DC127F3A7800993B19 /* AppDelegate.lua in Sources */ = {isa = PBXBuildFile; fileRef = 037E94DA127F3A7800993B19 /* AppDelegate.lua */; };
-		037E94DD127F3A7800993B19 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 037E94DB127F3A7800993B19 /* Info.plist */; };
-		037E94F2127F3AC600993B19 /* AppDelegate.lua in CopyFiles */ = {isa = PBXBuildFile; fileRef = 037E94DA127F3A7800993B19 /* AppDelegate.lua */; };
-		037E94F3127F3AC600993B19 /* Info.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 037E94DB127F3A7800993B19 /* Info.plist */; };
 		038709BA10D576E100DF5B90 /* BlacklistController.m in Sources */ = {isa = PBXBuildFile; fileRef = 038709B910D576E100DF5B90 /* BlacklistController.m */; };
 		038769151124532000B2C571 /* RouteCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 038769141124532000B2C571 /* RouteCollection.m */; };
 		038A4B4610E9656D00577D8F /* LastSpellCast.xib in Resources */ = {isa = PBXBuildFile; fileRef = 038A4B4510E9656D00577D8F /* LastSpellCast.xib */; };
@@ -173,6 +169,11 @@
 		03DE3294127A33F00005CCB9 /* luamock.lua in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03627B83126DD011001BD472 /* luamock.lua */; };
 		03DE3295127A33F00005CCB9 /* luaspec.lua in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03627B84126DD011001BD472 /* luaspec.lua */; };
 		03E1D7B8110F62CD003180E4 /* FileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E1D7B7110F62CD003180E4 /* FileObject.m */; };
+		03F14F68128B616600E2CB5E /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F14F67128B616600E2CB5E /* Event.m */; };
+		03F14F7D128B656500E2CB5E /* AppDelegate.lua in Sources */ = {isa = PBXBuildFile; fileRef = 03F14F7C128B656500E2CB5E /* AppDelegate.lua */; };
+		03F14F96128B65C300E2CB5E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F14F95128B65C300E2CB5E /* Info.plist */; };
+		03F14FA5128B665C00E2CB5E /* AppDelegate.lua in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03F14F7C128B656500E2CB5E /* AppDelegate.lua */; };
+		03F14FA6128B666100E2CB5E /* Info.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03F14F95128B65C300E2CB5E /* Info.plist */; };
 		03FFD45B110B922D0046AEDF /* MobsKilledCondition.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FFD45A110B922D0046AEDF /* MobsKilledCondition.xib */; };
 		03FFD46E110B930F0046AEDF /* MobsKilledConditionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FFD46D110B930F0046AEDF /* MobsKilledConditionController.m */; };
 		03FFD596110CB5440046AEDF /* InteractNPCActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FFD593110CB5440046AEDF /* InteractNPCActionController.m */; };
@@ -468,7 +469,7 @@
 		0317DF8D126F828100765741 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = plugins/Core;
+			dstPath = plugins/Combat;
 			dstSubfolderSpec = 7;
 			files = (
 				0317DF8E126F829B00765741 /* Info.plist in CopyFiles */,
@@ -479,11 +480,11 @@
 		037E94FE127F3AD300993B19 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = plugins/Combat;
+			dstPath = plugins/Core;
 			dstSubfolderSpec = 7;
 			files = (
-				037E94F2127F3AC600993B19 /* AppDelegate.lua in CopyFiles */,
-				037E94F3127F3AC600993B19 /* Info.plist in CopyFiles */,
+				03F14FA5128B665C00E2CB5E /* AppDelegate.lua in CopyFiles */,
+				03F14FA6128B666100E2CB5E /* Info.plist in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,8 +767,6 @@
 		03685FAC1103D768001CE552 /* QuestGrabActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestGrabActionController.m; sourceTree = "<group>"; };
 		03685FAE1103D77A001CE552 /* QuestTurnInActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestTurnInActionController.h; sourceTree = "<group>"; };
 		03685FAF1103D77A001CE552 /* QuestTurnInActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestTurnInActionController.m; sourceTree = "<group>"; };
-		037E94DA127F3A7800993B19 /* AppDelegate.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AppDelegate.lua; path = ../Combat/AppDelegate.lua; sourceTree = "<group>"; };
-		037E94DB127F3A7800993B19 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Combat/Info.plist; sourceTree = "<group>"; };
 		038709B810D576E100DF5B90 /* BlacklistController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlacklistController.h; sourceTree = "<group>"; };
 		038709B910D576E100DF5B90 /* BlacklistController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlacklistController.m; sourceTree = "<group>"; };
 		038769131124532000B2C571 /* RouteCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteCollection.h; sourceTree = "<group>"; };
@@ -825,6 +824,10 @@
 		03DE31DA127A13420005CCB9 /* NSAttributedString+Hyperlink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Hyperlink.m"; sourceTree = "<group>"; };
 		03E1D7B6110F62CD003180E4 /* FileObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileObject.h; sourceTree = "<group>"; };
 		03E1D7B7110F62CD003180E4 /* FileObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileObject.m; sourceTree = "<group>"; };
+		03F14F66128B616600E2CB5E /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		03F14F67128B616600E2CB5E /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		03F14F7C128B656500E2CB5E /* AppDelegate.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lua; name = AppDelegate.lua; path = plugins/Default/Core/AppDelegate.lua; sourceTree = SOURCE_ROOT; };
+		03F14F95128B65C300E2CB5E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = plugins/Default/Core/Info.plist; sourceTree = SOURCE_ROOT; };
 		03FFD45A110B922D0046AEDF /* MobsKilledCondition.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MobsKilledCondition.xib; sourceTree = "<group>"; };
 		03FFD46C110B930F0046AEDF /* MobsKilledConditionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobsKilledConditionController.h; sourceTree = "<group>"; };
 		03FFD46D110B930F0046AEDF /* MobsKilledConditionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobsKilledConditionController.m; sourceTree = "<group>"; };
@@ -1204,7 +1207,7 @@
 		7DF445520E241ABA0075B96B /* TotemConditionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotemConditionController.m; sourceTree = "<group>"; };
 		7DF445540E241AE30075B96B /* TotemCondition.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotemCondition.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* ggteabag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ggteabag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* Pocket Gnome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Gnome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8F38451289E8A6004E1714 /* PocketGnome_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketGnome_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		D02F3C541182C37E000F4037 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
 		D02F3C551182C37E000F4037 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
@@ -1537,6 +1540,8 @@
 				03627E3A126E0E82001BD472 /* PluginController.m */,
 				0317DF6B126E7FF800765741 /* Plugin.h */,
 				0317DF6C126E7FF800765741 /* Plugin.m */,
+				03F14F66128B616600E2CB5E /* Event.h */,
+				03F14F67128B616600E2CB5E /* Event.m */,
 			);
 			path = Plugins;
 			sourceTree = "<group>";
@@ -1544,8 +1549,8 @@
 		037E94CA127F3A4700993B19 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				037E94DB127F3A7800993B19 /* Info.plist */,
-				037E94DA127F3A7800993B19 /* AppDelegate.lua */,
+				03F14F95128B65C300E2CB5E /* Info.plist */,
+				03F14F7C128B656500E2CB5E /* AppDelegate.lua */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1663,7 +1668,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* ggteabag.app */,
+				8D1107320486CEB800E47090 /* Pocket Gnome.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2389,7 +2394,7 @@
 			name = "Pocket Gnome";
 			productInstallPath = "$(HOME)/Applications";
 			productName = WoWWaypoint;
-			productReference = 8D1107320486CEB800E47090 /* ggteabag.app */;
+			productReference = 8D1107320486CEB800E47090 /* Pocket Gnome.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2402,7 +2407,6 @@
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Pocket Gnome" */;
 			compatibilityVersion = "Xcode 3.0";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -2623,12 +2627,12 @@
 				03CD6AC41183D5AC00CCABFE /* Profiles.xib in Resources */,
 				0317DE61126E1BAF00765741 /* Ability_repair.png in Resources */,
 				610EF61C126F924000601DBF /* Plugins.xib in Resources */,
-				037E94DD127F3A7800993B19 /* Info.plist in Resources */,
 				6E8FA56F128085F600222D89 /* Rakefile in Resources */,
 				6E8FA578128085F600222D89 /* yajl-1.0.9.tar.gz in Resources */,
 				6EDD11D51281E69F007C8F7B /* Info.plist in Resources */,
 				6EDD12E0128219D9007C8F7B /* LuaConsole.nib in Resources */,
 				BA8F33461289DB1B004E1714 /* Combat.png in Resources */,
+				03F14F96128B65C300E2CB5E /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2821,7 +2825,6 @@
 				0317DF6D126E7FF800765741 /* Plugin.m in Sources */,
 				03DE31DB127A13420005CCB9 /* NSAttributedString+Hyperlink.m in Sources */,
 				03A8A257127A398C0056A69A /* AppDelegate.lua in Sources */,
-				037E94DC127F3A7800993B19 /* AppDelegate.lua in Sources */,
 				6E8FA56D128085F600222D89 /* wax_http.m in Sources */,
 				6E8FA56E128085F600222D89 /* wax_http_connection.m in Sources */,
 				6E8FA570128085F600222D89 /* wax_json.c in Sources */,
@@ -2833,6 +2836,8 @@
 				6E8FA576128085F600222D89 /* yajl_lex.c in Sources */,
 				6E8FA577128085F600222D89 /* yajl_parser.c in Sources */,
 				6EDD11D61281E69F007C8F7B /* LuaConsole.lua in Sources */,
+				03F14F68128B616600E2CB5E /* Event.m in Sources */,
+				03F14F7D128B656500E2CB5E /* AppDelegate.lua in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

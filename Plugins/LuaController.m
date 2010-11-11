@@ -95,22 +95,21 @@ static LuaController *sharedController = nil;
 				}
 			}				
 		}
-		if([pluginDict valueForKey:@"Main Class"] == nil) {
-			NSLog(@"plugin main calss not defined in Info.plist");
+		
+		
+		if ( [pluginDict valueForKey:@"Main Class"] == nil ) {
+			NSLog(@"plugin main class not defined in Info.plist");
 			return nil;
 		}
+		
 		Class pluginClass = NSClassFromString([pluginDict valueForKey:@"Main Class"]);
 		Plugin *plugin = [[pluginClass alloc] initWithPath:path];
 		
-		if(![plugin isKindOfClass:[Plugin class]]) {
+		if ( ![plugin isKindOfClass:[Plugin class]] ) {
 			NSLog(@"plugin main class %@ does not inherit from the Plugin class at path: %@", [pluginDict valueForKey:@"Main Class"], path);
 			return nil;
 		}
-		
-		
-		return plugin;
-		
-			
+		return plugin;	
 	}
 	
 	
