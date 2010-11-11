@@ -589,6 +589,8 @@
 	[_eventSelectors setObject:@"ePlayerFound:"				forKey:[NSNumber numberWithInt:E_PLAYER_FOUND]];
 	[_eventSelectors setObject:@"eBotStart"					forKey:[NSNumber numberWithInt:E_BOT_START]];
 	[_eventSelectors setObject:@"eBotStop"					forKey:[NSNumber numberWithInt:E_BOT_STOP]];
+	[_eventSelectors setObject:@"eWhisperReceived:"			forKey:[NSNumber numberWithInt:E_WHISPER_RECEIVED]];
+	[_eventSelectors setObject:@"eMessageReceived:"			forKey:[NSNumber numberWithInt:E_MESSAGE_RECEIVED]];
 	
 
 }

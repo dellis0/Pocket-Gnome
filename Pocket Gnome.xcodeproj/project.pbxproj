@@ -180,6 +180,10 @@
 		03FFD597110CB5440046AEDF /* InteractObjectActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FFD595110CB5440046AEDF /* InteractObjectActionController.m */; };
 		03FFD59A110CB55A0046AEDF /* InteractNPCAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FFD598110CB55A0046AEDF /* InteractNPCAction.xib */; };
 		03FFD59B110CB55A0046AEDF /* InteractObjectAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FFD599110CB55A0046AEDF /* InteractObjectAction.xib */; };
+		1D3E59C7128BD7B500ED035D /* AppDelegate.lua in Sources */ = {isa = PBXBuildFile; fileRef = 1D3E59C5128BD7B500ED035D /* AppDelegate.lua */; };
+		1D3E59C8128BD7B500ED035D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D3E59C6128BD7B500ED035D /* Info.plist */; };
+		1D3E59DD128BD7FF00ED035D /* AppDelegate.lua in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D3E59C5128BD7B500ED035D /* AppDelegate.lua */; };
+		1D3E59DE128BD7FF00ED035D /* Info.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D3E59C6128BD7B500ED035D /* Info.plist */; };
 		610EF61C126F924000601DBF /* Plugins.xib in Resources */ = {isa = PBXBuildFile; fileRef = 610EF61B126F924000601DBF /* Plugins.xib */; };
 		614CD78A1106182100BA1B2F /* Bot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 614CD7891106182100BA1B2F /* Bot.xib */; };
 		6E8FA56D128085F600222D89 /* wax_http.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8FA545128085F600222D89 /* wax_http.m */; };
@@ -546,6 +550,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1D3E59E3128BD80700ED035D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = plugins/Chat;
+			dstSubfolderSpec = 7;
+			files = (
+				1D3E59DD128BD7FF00ED035D /* AppDelegate.lua in CopyFiles */,
+				1D3E59DE128BD7FF00ED035D /* Info.plist in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6EDD12EC12821A4D007C8F7B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -840,6 +855,8 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1D3E59C5128BD7B500ED035D /* AppDelegate.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lua; path = AppDelegate.lua; sourceTree = "<group>"; };
+		1D3E59C6128BD7B500ED035D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -1207,7 +1224,7 @@
 		7DF445520E241ABA0075B96B /* TotemConditionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotemConditionController.m; sourceTree = "<group>"; };
 		7DF445540E241AE30075B96B /* TotemCondition.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotemCondition.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* Pocket Gnome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Gnome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* ggteabag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ggteabag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8F38451289E8A6004E1714 /* PocketGnome_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketGnome_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		D02F3C541182C37E000F4037 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
 		D02F3C551182C37E000F4037 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
@@ -1327,6 +1344,7 @@
 		0317DF7C126F81E700765741 /* Default */ = {
 			isa = PBXGroup;
 			children = (
+				1D3E59C4128BD7B500ED035D /* Chat */,
 				6EDD11D21281E69F007C8F7B /* LuaConsole */,
 				037E94CA127F3A4700993B19 /* Core */,
 				0317DF7E126F822A00765741 /* Combat */,
@@ -1668,9 +1686,18 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* Pocket Gnome.app */,
+				8D1107320486CEB800E47090 /* ggteabag.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1D3E59C4128BD7B500ED035D /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				1D3E59C5128BD7B500ED035D /* AppDelegate.lua */,
+				1D3E59C6128BD7B500ED035D /* Info.plist */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* WoWWaypoint */ = {
@@ -2385,6 +2412,7 @@
 				03DE3298127A340E0005CCB9 /* CopyFiles */,
 				037E94FE127F3AD300993B19 /* CopyFiles */,
 				6EDD12EC12821A4D007C8F7B /* CopyFiles */,
+				1D3E59E3128BD80700ED035D /* CopyFiles */,
 			);
 			buildRules = (
 				7D1B3A500F8987B1005CA0CD /* PBXBuildRule */,
@@ -2394,7 +2422,7 @@
 			name = "Pocket Gnome";
 			productInstallPath = "$(HOME)/Applications";
 			productName = WoWWaypoint;
-			productReference = 8D1107320486CEB800E47090 /* Pocket Gnome.app */;
+			productReference = 8D1107320486CEB800E47090 /* ggteabag.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2407,6 +2435,7 @@
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Pocket Gnome" */;
 			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -2633,6 +2662,7 @@
 				6EDD12E0128219D9007C8F7B /* LuaConsole.nib in Resources */,
 				BA8F33461289DB1B004E1714 /* Combat.png in Resources */,
 				03F14F96128B65C300E2CB5E /* Info.plist in Resources */,
+				1D3E59C8128BD7B500ED035D /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2838,6 +2868,7 @@
 				6EDD11D61281E69F007C8F7B /* LuaConsole.lua in Sources */,
 				03F14F68128B616600E2CB5E /* Event.m in Sources */,
 				03F14F7D128B656500E2CB5E /* AppDelegate.lua in Sources */,
+				1D3E59C7128BD7B500ED035D /* AppDelegate.lua in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,8 @@
 #import "ChatLogEntry.h"
 #import "ChatAction.h"
 
+#import "PluginController.h"
+
 #import <Message/NSMailDelivery.h>
 #import <ScriptingBridge/ScriptingBridge.h>
 #import <Foundation/NSAppleEventDescriptor.h>
@@ -219,6 +221,7 @@
         for(ChatLogEntry *entry in newEntries) {
             if(![_chatLog containsObject: entry]) {
                 // NSLog(@"%@", entry);
+				[pluginController performEvent:E_MESSAGE_RECEIVED withObject:entry];
                 [_chatLog addObject: entry];
                 self.lastPassFoundChat = YES;
                 
@@ -238,6 +241,7 @@
 					// Fire off a notification - Whisper received!
 					if ( [entry isWhisperReceived] ){
 						[[NSNotificationCenter defaultCenter] postNotificationName: WhisperReceived object: entry];
+						[pluginController performEvent:E_WHISPER_RECEIVED withObject:entry];
 						[self addWhisper:entry];
 					}
                     

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Plugin Name</key>
+	<string>Chat</string>
+	<key>Description</key>
+	<string>Chat Interface for PG</string>
+	<key>Version</key>
+	<string>0.1</string>
+	<key>Release Date</key>
+	<string></string>
+	<key>Author</key>
+	<string>Amoksoft</string>
+	<key>Main Class</key>
+	<string>PGChat</string>
+</dict>
+</plist>
