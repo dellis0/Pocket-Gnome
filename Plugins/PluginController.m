@@ -591,8 +591,12 @@
 	[_eventSelectors setObject:@"eBotStop"					forKey:[NSNumber numberWithInt:E_BOT_STOP]];
 	[_eventSelectors setObject:@"eWhisperReceived:"			forKey:[NSNumber numberWithInt:E_WHISPER_RECEIVED]];
 	[_eventSelectors setObject:@"eMessageReceived:"			forKey:[NSNumber numberWithInt:E_MESSAGE_RECEIVED]];
+	[_eventSelectors setObject:@"ePlayerAuraGained:"		forKey:[NSNumber numberWithInt:E_PLAYER_AURA_GAINED]];
+	[_eventSelectors setObject:@"ePetAuraGained:"			forKey:[NSNumber numberWithInt:E_PET_AURA_GAINED]];
+	[_eventSelectors setObject:@"eTargetAuraGained:"		forKey:[NSNumber numberWithInt:E_TARGET_AURA_GAINED]];
+	[_eventSelectors setObject:@"ePlayerAuraFaded:"			forKey:[NSNumber numberWithInt:E_PLAYER_AURA_FADED]];
 	
-
+	
 }
 
 @end

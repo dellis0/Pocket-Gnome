@@ -31,6 +31,7 @@
 @class PvPController;
 @class ProfileController;
 @class PluginController;
+@class ChatController;
 
 #define MemoryAccessValidNotification       @"MemoryAccessValidNotification"
 #define MemoryAccessInvalidNotification     @"MemoryAccessInvalidNotification"
@@ -49,6 +50,7 @@ BOOL Ascii2Virtual(char pcar, BOOL *pshift, BOOL *palt, char *pkeycode);
     IBOutlet PlayerDataController	*playerData;
     IBOutlet MemoryViewController	*memoryViewController;
     IBOutlet BotController			*botController;
+    IBOutlet ChatController			*chatController;
     IBOutlet MobController			*mobController;
     IBOutlet NodeController			*nodeController;
     IBOutlet PlayersController		*playersController;
@@ -184,6 +186,7 @@ BOOL Ascii2Virtual(char pcar, BOOL *pshift, BOOL *palt, char *pkeycode);
 
 // LUA Connectors
 @property (readonly) BotController *botController;
+@property (readonly) ChatController *chatController;
 
 
 

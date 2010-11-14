@@ -26,6 +26,7 @@
 #import "PvPController.h"
 #import "ProfileController.h"
 #import "PluginController.h"
+#import "ChatController.h"
 
 #import "CGSPrivate.h"
 
@@ -1639,5 +1640,6 @@ AEDisposeDesc(&targetProcess);
 #pragma mark LUA
 
 @synthesize botController;
+@synthesize chatController;
 
 @end

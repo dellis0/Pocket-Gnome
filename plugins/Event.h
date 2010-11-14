@@ -10,14 +10,28 @@
 
 typedef enum {
 	E_NONE,
+
+//Plugin Events	
 	E_PLUGIN_LOADED,
 	E_PLUGIN_CONFIG,
+
+//Player state changes	
 	E_PLAYER_DIED,
 	E_PLAYER_FOUND,
+	
+//Bot control	
 	E_BOT_START,
 	E_BOT_STOP,
+	
+//Messages	
 	E_MESSAGE_RECEIVED,
 	E_WHISPER_RECEIVED,
+	
+//Aura Events	
+	E_PLAYER_AURA_GAINED,
+	E_PET_AURA_GAINED,
+	E_TARGET_AURA_GAINED,
+	E_PLAYER_AURA_FADED,
 	
 	E_MAX,
 } PG_EVENT_TYPE;
