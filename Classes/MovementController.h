@@ -32,7 +32,6 @@
 @class Position;
 
 #define ReachedObjectNotification      @"ReachedObjectNotification"
-#define ReachedFollowUnitNotification      @"ReachedFollowUnitNotification"
 
 // How close do we need to be to a node before we dismount?
 #define DistanceUntilDismountByNode	2.0f
@@ -68,12 +67,8 @@ typedef enum MovementType {
 
 	NSMutableDictionary *_stuckDictionary;
 	
-	NSString *_currentRouteKey;
-	RouteSet *_currentRouteSet;			// current route set
 	Waypoint *_destinationWaypoint;
-	Route *_currentRoute;				// current route we're running
-	Route *_currentRouteHoldForFollow;
-	
+
 	int _movementState;
 	
 	WoWObject *_moveToObject;			// current object we're moving to
@@ -85,7 +80,6 @@ typedef enum MovementType {
 	
 	// stuck checking
 	Position	*_lastAttemptedPosition;
-	Position	*_followNextPosition;
 	NSDate		*_lastAttemptedPositionTime;
 	NSDate		*_lastDirectionCorrection;
 	Position	*_lastPlayerPosition;
@@ -102,18 +96,15 @@ typedef enum MovementType {
 	int _jumpAttempt;
 	
 	BOOL _movingUp;
-	BOOL _afkPressForward;
 	BOOL _lastCorrectionForward;
 	BOOL _lastCorrectionLeft;
 	BOOL _performingActions;
-	BOOL _isFollowing;
 	BOOL _isActive;
 
 	Waypoint *_destinationWaypointUI;
 }
 
 @property (readwrite, retain) RouteSet *currentRouteSet;
-@property (readwrite, assign) BOOL isFollowing;
 @property (readwrite, assign) BOOL isActive;
 @property (readonly, assign) BOOL performingActions;
 
@@ -128,9 +119,6 @@ typedef enum MovementType {
 
 // move to a position (I'd prefer we don't do this often, but it is sometimes needed :()
 - (void)moveToPosition: (Position*)position;
-
-// Start out follow
-- (void)startFollow;
 
 // the object we're moving to
 - (WoWObject*)moveToObject;
@@ -180,9 +168,6 @@ typedef enum MovementType {
 
 // remove routes
 - (void)resetRoutes;
-
-// just presses forward or backward
-- (void)antiAFK;
 
 // establish the player's position
 - (void)establishPlayerPosition;

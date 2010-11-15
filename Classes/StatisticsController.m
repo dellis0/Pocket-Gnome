@@ -45,10 +45,10 @@
                                                  selector: @selector(unitDied:) 
                                                      name: UnitDiedNotification 
                                                    object: nil];
-		[[NSNotificationCenter defaultCenter] addObserver: self
+		/*[[NSNotificationCenter defaultCenter] addObserver: self
                                                  selector: @selector(botStarted:) 
                                                      name: BotStarted 
-                                                   object: nil];
+                                                   object: nil];*/
 		
 		
 		

@@ -211,7 +211,7 @@ static MobController* sharedController = nil;
 				if ( [mob entryID] == [entryID intValue] ){
 					float distance = [position distanceToPosition: [mob position]];
 					if((distance != INFINITY) && (distance <= mobDistance)) {
-						if ( [mob isTappedByOther] && !botController.theCombatProfile.partyEnabled && !botController.pvpIsInBG ) tapCheckPassed = NO;
+						if ( [mob isTappedByOther] && !botController.theCombatProfile.partyEnabled /*&& !botController.pvpIsInBG*/ ) tapCheckPassed = NO;
 
 						// Living check?
 						if ( !aliveOnly || (aliveOnly && ![mob isDead]) ) {
@@ -264,7 +264,7 @@ static MobController* sharedController = nil;
 		}
         
 		tapCheckPassed = YES;
-		if ( [mob isTappedByOther] && !botController.theCombatProfile.partyEnabled && !botController.pvpIsInBG ) tapCheckPassed = NO;
+		if ( [mob isTappedByOther] && !botController.theCombatProfile.partyEnabled /*&& !botController.pvpIsInBG*/ ) tapCheckPassed = NO;
 		
         float distance = [playerPosition distanceToPosition: [mob position]];
                 

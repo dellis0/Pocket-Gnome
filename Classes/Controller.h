@@ -183,7 +183,20 @@ BOOL Ascii2Virtual(char pcar, BOOL *pshift, BOOL *palt, char *pkeycode);
 - (UInt32)currentTime;
 
 // LUA Connectors
+@property (readonly) BotController			*botController;
+//@property (readonly) FishController			*fishController;
+/*@property (readonly) ChatController			*chatController;
+@property (readonly) ChatLogController			*chatLogController;
+@property (readonly) PlayerDataController *botController;
+@property (readonly) SpellController *botController;
+@property (readonly) CombatController *botController;
 @property (readonly) BotController *botController;
+@property (readonly) BotController *botController;
+@property (readonly) BotController *botController;
+@property (readonly) BotController *botController;
+@property (readonly) BotController *botController;
+@property (readonly) BotController *botController;
+@property (readonly) BotController *botController;*/
 
 
 
