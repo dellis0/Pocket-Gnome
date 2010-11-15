@@ -10,6 +10,7 @@
 
 @class Unit;
 @class PlayerDataController;
+@class PluginController;
 
 #define BuffGainNotification @"BuffGainNotification"
 #define BuffFadeNotification @"BuffFadeNotification"
@@ -24,6 +25,7 @@
     IBOutlet PlayerDataController *playerController;
     IBOutlet id spellController;
     IBOutlet id mobController;
+	IBOutlet PluginController *pluginController;
 
     BOOL _firstRun;
     NSMutableArray *_auras;

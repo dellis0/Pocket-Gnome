@@ -54,7 +54,10 @@ function eWhisperReceived(self, chatLogEntry)
 end
 
 function sendChatMessage(message)
-	
+	Controller:sharedController():chatController():jump()
+	Controller:sharedController():chatController():enter()
+	Controller:sharedController():chatController():sendKeySequence("/s hi")
+	Controller:sharedController():chatController():enter()
 --[[	if(message) then
 		puts(wax.instance.methods(self))
 	end

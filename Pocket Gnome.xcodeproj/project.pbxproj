@@ -180,6 +180,10 @@
 		03FFD597110CB5440046AEDF /* InteractObjectActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FFD595110CB5440046AEDF /* InteractObjectActionController.m */; };
 		03FFD59A110CB55A0046AEDF /* InteractNPCAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FFD598110CB55A0046AEDF /* InteractNPCAction.xib */; };
 		03FFD59B110CB55A0046AEDF /* InteractObjectAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FFD599110CB55A0046AEDF /* InteractObjectAction.xib */; };
+		1D2E6A64128D1FCE00DA8DCF /* AppDelegate.lua in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E6A62128D1FCE00DA8DCF /* AppDelegate.lua */; };
+		1D2E6A65128D1FCE00DA8DCF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D2E6A63128D1FCE00DA8DCF /* Info.plist */; };
+		1D2E6A7B128D244500DA8DCF /* AppDelegate.lua in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D2E6A62128D1FCE00DA8DCF /* AppDelegate.lua */; };
+		1D2E6A7C128D244500DA8DCF /* Info.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D2E6A63128D1FCE00DA8DCF /* Info.plist */; };
 		1D3E59C7128BD7B500ED035D /* AppDelegate.lua in Sources */ = {isa = PBXBuildFile; fileRef = 1D3E59C5128BD7B500ED035D /* AppDelegate.lua */; };
 		1D3E59C8128BD7B500ED035D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D3E59C6128BD7B500ED035D /* Info.plist */; };
 		1D3E59DD128BD7FF00ED035D /* AppDelegate.lua in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D3E59C5128BD7B500ED035D /* AppDelegate.lua */; };
@@ -550,6 +554,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1D2E6A7A128D23D400DA8DCF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = plugins/EventTesting;
+			dstSubfolderSpec = 7;
+			files = (
+				1D2E6A7B128D244500DA8DCF /* AppDelegate.lua in CopyFiles */,
+				1D2E6A7C128D244500DA8DCF /* Info.plist in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D3E59E3128BD80700ED035D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -855,6 +870,8 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1D2E6A62128D1FCE00DA8DCF /* AppDelegate.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lua; path = AppDelegate.lua; sourceTree = "<group>"; };
+		1D2E6A63128D1FCE00DA8DCF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D3E59C5128BD7B500ED035D /* AppDelegate.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lua; path = AppDelegate.lua; sourceTree = "<group>"; };
 		1D3E59C6128BD7B500ED035D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1344,6 +1361,7 @@
 		0317DF7C126F81E700765741 /* Default */ = {
 			isa = PBXGroup;
 			children = (
+				1D2E6A61128D1FCE00DA8DCF /* EventTesting */,
 				1D3E59C4128BD7B500ED035D /* Chat */,
 				6EDD11D21281E69F007C8F7B /* LuaConsole */,
 				037E94CA127F3A4700993B19 /* Core */,
@@ -1689,6 +1707,15 @@
 				8D1107320486CEB800E47090 /* Pocket Gnome.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1D2E6A61128D1FCE00DA8DCF /* EventTesting */ = {
+			isa = PBXGroup;
+			children = (
+				1D2E6A62128D1FCE00DA8DCF /* AppDelegate.lua */,
+				1D2E6A63128D1FCE00DA8DCF /* Info.plist */,
+			);
+			path = EventTesting;
 			sourceTree = "<group>";
 		};
 		1D3E59C4128BD7B500ED035D /* Chat */ = {
@@ -2413,6 +2440,7 @@
 				037E94FE127F3AD300993B19 /* CopyFiles */,
 				6EDD12EC12821A4D007C8F7B /* CopyFiles */,
 				1D3E59E3128BD80700ED035D /* CopyFiles */,
+				1D2E6A7A128D23D400DA8DCF /* CopyFiles */,
 			);
 			buildRules = (
 				7D1B3A500F8987B1005CA0CD /* PBXBuildRule */,
@@ -2662,6 +2690,7 @@
 				BA8F33461289DB1B004E1714 /* Combat.png in Resources */,
 				03F14F96128B65C300E2CB5E /* Info.plist in Resources */,
 				1D3E59C8128BD7B500ED035D /* Info.plist in Resources */,
+				1D2E6A65128D1FCE00DA8DCF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2868,6 +2897,7 @@
 				03F14F68128B616600E2CB5E /* Event.m in Sources */,
 				03F14F7D128B656500E2CB5E /* AppDelegate.lua in Sources */,
 				1D3E59C7128BD7B500ED035D /* AppDelegate.lua in Sources */,
+				1D2E6A64128D1FCE00DA8DCF /* AppDelegate.lua in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

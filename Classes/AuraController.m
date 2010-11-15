@@ -11,6 +11,7 @@
 #import "PlayerDataController.h"
 #import "SpellController.h"
 #import "MobController.h"
+#import "PluginController.h"
 
 #import "MemoryAccess.h"
 #import "Offsets.h"
@@ -635,6 +636,7 @@ typedef struct WoWAura {
                     [[NSNotificationCenter defaultCenter] postNotificationName: BuffFadeNotification 
                                                                         object: self 
                                                                       userInfo: [NSDictionary dictionaryWithObject: spell forKey: @"Spell"]];
+					[pluginController performEvent:E_PLAYER_AURA_FADED withObject:spell];
                 }
             }
         }
@@ -672,6 +674,7 @@ typedef struct WoWAura {
                     if(spell && (![spell name] || ![[spell name] length])) {
                         [spell reloadSpellData];
                     }
+					[pluginController performEvent:E_PLAYER_AURA_GAINED withObject:spell];
                 } else {
                     // log(LOG_GENERAL, @"[Auras] Failed to create valid spell from ID %@.", num);
                 }
@@ -722,6 +725,9 @@ typedef struct WoWAura {
                 [spell reloadSpellData];
                 // log(LOG_GENERAL, @"Loading pet spell %@", num);
             }
+			if(spell){
+				[pluginController performEvent:E_PET_AURA_GAINED withObject:spell];
+			}
         }
         
         // then go and add target spells
@@ -737,6 +743,10 @@ typedef struct WoWAura {
                 [spell reloadSpellData];
                 // log(LOG_GENERAL, @"Loading target spell %@", num);
             }
+			if(spell){
+				[pluginController performEvent:E_TARGET_AURA_GAINED withObject:spell];
+			}
+			
         }
         
         // remove all the old buffs and add the new ones
