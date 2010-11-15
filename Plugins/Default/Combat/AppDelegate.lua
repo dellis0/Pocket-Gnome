@@ -2,7 +2,7 @@ waxClass{"PGCombat", Plugin}
 
 function ePluginLoaded(self)
 
-	puts("Hello from PGCombat")
+	print("Hello from PGCombat")
 	
 end
 

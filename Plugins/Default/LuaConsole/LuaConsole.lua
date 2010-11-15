@@ -1,24 +1,52 @@
 luaConsoleGlobal = { backLog = {}}
-
-local oldputs = puts
-function puts(s)
-	oldputs(s)
-	if(luaConsoleGlobal.instance ~= nil) then
-		luaConsoleGlobal.instance.log(luaConsoleGlobal.instance, s)
-	else
-		luaConsoleGlobal.backLog[#luaConsoleGlobal.backLog+1] = s
-	end
-end
   
 local oldprint = print
 function print(s)
 	oldprint(s)
+	local sourceFile = debug.getinfo(2, "S").source.."-"..debug.getinfo(2, "l").currentline
+	if(string.find(sourceFile, "wax/init.lua") ~= nil) then
+		sourceFile = debug.getinfo(3, "S").source.."-"..debug.getinfo(3, "l").currentline
+	end
+	local pluginsIndex = string.find(sourceFile, "/plugins/")
+	if(pluginsIndex ~= nil) then
+		sourceFile = string.sub(sourceFile, pluginsIndex + 9)
+	end
+	local prefix = os.date("%X").." "..sourceFile..": "
 	if(luaConsoleGlobal.instance ~= nil) then
-		luaConsoleGlobal.instance.log(luaConsoleGlobal.instance, s)
+		luaConsoleGlobal.instance.log(luaConsoleGlobal.instance, prefix..s)
 	else
-		luaConsoleGlobal.backLog[#luaConsoleGlobal.backLog+1] = s
+		luaConsoleGlobal.backLog[#luaConsoleGlobal.backLog+1] = prefix..s
 	end
 end 
+
+
+function print_r ( t ) 
+ 	local print_r_cache={}
+	local res = ""
+	local function sub_print_r(t,indent)
+		if (print_r_cache[tostring(t)]) then
+			res = res .. indent.."*"..tostring(t)
+		else
+			print_r_cache[tostring(t)]=true
+			if (type(t)=="table") then
+				for pos,val in pairs(t) do
+					if (type(val)=="table") then
+						res = res ..  indent.."["..pos.."] => "..tostring(t).." {"
+						sub_print_r(val,indent..string.rep(" ",string.len(pos)+8))
+						res = res .. indent..string.rep(" ",string.len(pos)+6).."}"
+					else
+						res = res .. indent.."["..pos.."] => "..tostring(val)
+					end
+				end
+			else
+				res = res .. indent..tostring(t)
+			end
+		end
+	end
+	sub_print_r(t,"  ")
+	
+	return res
+end
 
 waxClass{"LuaConsole", Plugin, outlets={"window", "textView", "scrollView"}, protocols = {"NSTextFieldDelegate"}}
 
@@ -67,30 +95,3 @@ function control_textShouldEndEditing(self, control, field)
 	field:setString("");
 end
 
-function print_r ( t ) 
- 	local print_r_cache={}
-	local res = ""
-	local function sub_print_r(t,indent)
-		if (print_r_cache[tostring(t)]) then
-			res = res .. indent.."*"..tostring(t)
-		else
-			print_r_cache[tostring(t)]=true
-			if (type(t)=="table") then
-				for pos,val in pairs(t) do
-					if (type(val)=="table") then
-						res = res ..  indent.."["..pos.."] => "..tostring(t).." {"
-						sub_print_r(val,indent..string.rep(" ",string.len(pos)+8))
-						res = res .. indent..string.rep(" ",string.len(pos)+6).."}"
-					else
-						res = res .. indent.."["..pos.."] => "..tostring(val)
-					end
-				end
-			else
-				res = res .. indent..tostring(t)
-			end
-		end
-	end
-	sub_print_r(t,"  ")
-	
-	return res
-end

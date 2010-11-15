@@ -3,7 +3,7 @@ waxClass{"PGChat", Plugin}
 function ePluginLoaded(self)
   self.trends = {}
   
-  puts("Hello from PGChat")
+  print("Hello from PGChat")
   
 end
 
