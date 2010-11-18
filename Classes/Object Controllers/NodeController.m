@@ -52,7 +52,7 @@ typedef enum {
             _miningDict = [[gatheringDict objectForKey: @"Mining"] retain];
             _herbalismDict = [[gatheringDict objectForKey: @"Herbalism"] retain];
         } else {
-            PGLog( @"Unable to load Gathering information.");
+            PGLog(@"Unable to load Gathering information.");
         }
         
         // load in node names
@@ -195,7 +195,7 @@ typedef enum {
 			for ( NSNumber *entryID in nodeIDs ){
 				if ( [node entryID] == [entryID intValue] ){
 					float distance = [position distanceToPosition: [node position]];
-					PGLog( @"Found %d == %d with distance of %0.2f", [node entryID], [entryID intValue], distance);
+					PGLog(@"Found %d == %d with distance of %0.2f", [node entryID], [entryID intValue], distance);
 					if((distance != INFINITY) && (distance <= nodeDistance)) {
 						[nearbyNodes addObject: node];
 					}
@@ -209,12 +209,12 @@ typedef enum {
 
 - (NSArray*)nodesWithinDistance: (float)nodeDistance EntryID: (int)entryID position:(Position*)position{
 	
-	PGLog( @"Searching for %d", entryID);
+	PGLog(@"Searching for %d", entryID);
 	NSMutableArray *nearbyNodes = [NSMutableArray array];
     for(Node *node in _objectList) {
 		if ( [node entryID] == entryID ){
 			float distance = [position distanceToPosition: [node position]];
-			PGLog( @"Found %d == %d with distance of %0.2f", [node entryID], entryID, distance);
+			PGLog(@"Found %d == %d with distance of %0.2f", [node entryID], entryID, distance);
 			if((distance != INFINITY) && (distance <= nodeDistance)) {
 				[nearbyNodes addObject: node];
 			}
@@ -265,16 +265,16 @@ typedef enum {
     for(Node* node in nodeList) {
 		
 		if ( [node entryID]==entryID ){
-			PGLog( @"Node id found! %d", [node entryID]);
+			PGLog(@"Node id found! %d", [node entryID]);
 			
-			PGLog( @"%d %d %d", [node isValid], [node isUseable], ([playerPosition distanceToPosition: [node position]] <= 10) );
+			PGLog(@"%d %d %d", [node isValid], [node isUseable], ([playerPosition distanceToPosition: [node position]] <= 10) );
 		}
 		
 		if( [node isValid] && [node entryID]==entryID && [node isUseable] && ([playerPosition distanceToPosition: [node position]] <= 10) ) {
             return node;
         }
     }
-	PGLog( @"[Node] No node for interaction");
+	PGLog(@"[Node] No node for interaction");
     return nil;
 }
 

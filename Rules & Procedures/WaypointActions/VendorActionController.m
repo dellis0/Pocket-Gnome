@@ -16,7 +16,7 @@
     self = [super init];
     if (self != nil) {
         if(![NSBundle loadNibNamed: @"VendorAction" owner: self]) {
-            PGLog( @"Error loading VendorAction.nib.");
+            PGLog(@"Error loading VendorAction.nib.");
             
             [self release];
             self = nil;

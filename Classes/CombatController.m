@@ -301,7 +301,7 @@ int WeightCompare(id unit1, id unit2, void *context) {
 
 	if ( [playerData isDead] || [playerData percentHealth] == 0 ) return nil;
 
-	//PGLog( @"combatList");
+	//PGLog(@"combatList");
 
 	// Seems this isn't upating so I'll stick it here for now?
 	[self doCombatSearch];
@@ -763,7 +763,7 @@ int WeightCompare(id unit1, id unit2, void *context) {
 }
 
 - (void)cancelCombatAction {
-	PGLog( @"cancelCombatAction");
+	PGLog(@"cancelCombatAction");
 	[NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(stayWithUnit) object: nil];
 
 	// reset our variables
@@ -777,7 +777,7 @@ int WeightCompare(id unit1, id unit2, void *context) {
 }
 
 - (void)cancelAllCombat {
-	PGLog( @"cancelAllCombat");
+	PGLog(@"cancelAllCombat");
 
 	// reset our variables
 	[_castingUnit release]; _castingUnit = nil;
@@ -790,7 +790,7 @@ int WeightCompare(id unit1, id unit2, void *context) {
 }
 
 - (void)resetAllCombat {
-	PGLog( @"resetAllCombat");
+	PGLog(@"resetAllCombat");
 	[NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(monitorUnit:) object: nil];
 	[NSObject cancelPreviousPerformRequestsWithTarget: self selector: @selector(stayWithUnit) object: nil];
 
@@ -800,7 +800,7 @@ int WeightCompare(id unit1, id unit2, void *context) {
 }
 
 - (void)resetUnitsDied {
-	PGLog( @"resetUnitsDied");
+	PGLog(@"resetUnitsDied");
 	[_unitsDied removeAllObjects];
 	PGLog(@"unitsDied reset.");
 }
@@ -914,7 +914,7 @@ int WeightCompare(id unit1, id unit2, void *context) {
 // find a unit to attack, CC, or heal
 - (Unit*)findUnitWithFriendly:(BOOL)includeFriendly onlyHostilesInCombat:(BOOL)onlyHostilesInCombat {
 
-	PGLog( @"findCombatTarget called");
+	PGLog(@"findCombatTarget called");
 
 	// flying check?
 	if ( botController.theCombatProfile.ignoreFlying ) if ( ![playerData isOnGround] ) return nil;
@@ -943,7 +943,7 @@ int WeightCompare(id unit1, id unit2, void *context) {
 // find a unit to attack, CC, or heal (this one is for engage range only... combat start vs combat continuation)
 - (Unit*)findUnitWithFriendlyToEngage:(BOOL)includeFriendly onlyHostilesInCombat:(BOOL)onlyHostilesInCombat {
 	
-	PGLog( @"findCombatTarget called");
+	PGLog(@"findCombatTarget called");
 	
 	// flying check?
 	if ( botController.theCombatProfile.ignoreFlying ) if ( ![playerData isOnGround] ) return nil;

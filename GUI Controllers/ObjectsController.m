@@ -529,7 +529,7 @@
 	
 	WoWObject *obj = [self selectedObject];
 	
-	PGLog( @"[Objects] Selecting %@", obj);
+	PGLog(@"[Objects] Selecting %@", obj);
 	
 	if ( obj ){
 		[playerController setPrimaryTarget: obj];

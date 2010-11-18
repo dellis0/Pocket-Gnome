@@ -15,7 +15,7 @@
     self = [super init];
     if (self != nil) {
         if(![NSBundle loadNibNamed: @"TotemCondition" owner: self]) {
-            PGLog( @"Error loading TotemCondition.nib.");
+            PGLog(@"Error loading TotemCondition.nib.");
             
             [self release];
             self = nil;

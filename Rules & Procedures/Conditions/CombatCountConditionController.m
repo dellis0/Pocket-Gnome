@@ -15,7 +15,7 @@
     self = [super init];
     if (self != nil) {
         if(![NSBundle loadNibNamed: @"CombatCount" owner: self]) {
-            PGLog( @"Error loading CombatCount.nib.");
+            PGLog(@"Error loading CombatCount.nib.");
             
             [self release];
             self = nil;

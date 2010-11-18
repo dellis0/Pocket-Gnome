@@ -592,7 +592,7 @@
 		fRef = 03BE961911828343004DBFBF /* FileController.m */;
 		name = "FileController.m: 284";
 		rLen = 26;
-		rLoc = 8149;
+		rLoc = 8148;
 		rType = 0;
 		vrLen = 1507;
 		vrLoc = 7420;
@@ -891,7 +891,7 @@
 		fRef = 0341DDD9111B21D700074CED /* ObjectController.m */;
 		name = "ObjectController.m: 164";
 		rLen = 0;
-		rLoc = 4691;
+		rLoc = 4689;
 		rType = 0;
 		vrLen = 1101;
 		vrLoc = 4339;
@@ -949,7 +949,7 @@
 		fRef = 7D97730E0D2DBF5400E6D8F9 /* RuleEditor.m */;
 		name = "RuleEditor.m: 396";
 		rLen = 12;
-		rLoc = 13816;
+		rLoc = 13814;
 		rType = 0;
 		vrLen = 1513;
 		vrLoc = 12424;
@@ -1123,7 +1123,7 @@
 		isa = PBXTextBookmark;
 		fRef = 7DAAE7200D14897D003F1E3C /* MemoryAccess.m */;
 		name = "MemoryAccess.m: 1";
-		rLen = 9520;
+		rLen = 9517;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 1343;
@@ -1414,9 +1414,9 @@
 	};
 	03627B65126DD011001BD472 /* wax_helpers.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {992, 10803}}";
-			sepNavSelRange = "{26975, 0}";
-			sepNavVisRange = "{25040, 1291}";
+			sepNavIntBoundsRect = "{{0, 0}, {1344, 11089}}";
+			sepNavSelRange = "{1526, 48}";
+			sepNavVisRange = "{1014, 1122}";
 		};
 	};
 	03627B66126DD011001BD472 /* wax_instance.h */ = {
@@ -1428,9 +1428,9 @@
 	};
 	03627B67126DD011001BD472 /* wax_instance.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1594, 10517}}";
-			sepNavSelRange = "{16738, 0}";
-			sepNavVisRange = "{1628, 1517}";
+			sepNavIntBoundsRect = "{{0, 0}, {1447, 10322}}";
+			sepNavSelRange = "{16731, 9}";
+			sepNavVisRange = "{15951, 2076}";
 		};
 	};
 	03627B68126DD011001BD472 /* wax_server.h */ = {
@@ -1561,9 +1561,9 @@
 	};
 	03627B88126DD011001BD472 /* wax.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {989, 3419}}";
-			sepNavSelRange = "{7020, 0}";
-			sepNavVisRange = "{6172, 929}";
+			sepNavIntBoundsRect = "{{0, 0}, {1344, 3497}}";
+			sepNavSelRange = "{5502, 7}";
+			sepNavVisRange = "{4267, 1357}";
 			sepNavWindowFrame = "{{-1641, 201}, {1432, 961}}";
 		};
 	};
@@ -2829,7 +2829,7 @@
 		fRef = 03981E77112B898E0081835F /* MovementController.m */;
 		name = "MovementController.m: 2150";
 		rLen = 0;
-		rLoc = 68490;
+		rLoc = 68384;
 		rType = 0;
 		vrLen = 1794;
 		vrLoc = 43630;
@@ -2979,7 +2979,7 @@
 		fRef = 030C2E4C0FDC09B300E80F7E /* LootController.m */;
 		name = "LootController.m: 253";
 		rLen = 13;
-		rLoc = 7968;
+		rLoc = 7966;
 		rType = 0;
 		vrLen = 1691;
 		vrLoc = 1148;
@@ -3567,7 +3567,7 @@
 		fRef = 034126C01135706E00BE6819 /* PvPController.m */;
 		name = "PvPController.m: 344";
 		rLen = 0;
-		rLoc = 10561;
+		rLoc = 4521;
 		rType = 0;
 		vrLen = 845;
 		vrLoc = 9831;
@@ -3594,7 +3594,7 @@
 		fRef = 7DAAE7200D14897D003F1E3C /* MemoryAccess.m */;
 		name = "MemoryAccess.m: 98";
 		rLen = 0;
-		rLoc = 3040;
+		rLoc = 1590;
 		rType = 0;
 		vrLen = 988;
 		vrLoc = 2129;
@@ -3604,7 +3604,7 @@
 		fRef = 034126C01135706E00BE6819 /* PvPController.m */;
 		name = "PvPController.m: 344";
 		rLen = 0;
-		rLoc = 10561;
+		rLoc = 4521;
 		rType = 0;
 		vrLen = 886;
 		vrLoc = 9785;
@@ -3614,7 +3614,7 @@
 		fRef = 7DAAE7200D14897D003F1E3C /* MemoryAccess.m */;
 		name = "MemoryAccess.m: 98";
 		rLen = 0;
-		rLoc = 3040;
+		rLoc = 1590;
 		rType = 0;
 		vrLen = 988;
 		vrLoc = 2129;
@@ -3631,7 +3631,7 @@
 		fRef = 7DD03F0B0D163F44000CC1A6 /* WaypointController.m */;
 		name = "WaypointController.m: 1280";
 		rLen = 0;
-		rLoc = 39386;
+		rLoc = 2813;
 		rType = 0;
 		vrLen = 1331;
 		vrLoc = 2168;
@@ -3670,7 +3670,7 @@
 		fRef = 7DAAE7200D14897D003F1E3C /* MemoryAccess.m */;
 		name = "MemoryAccess.m: 98";
 		rLen = 0;
-		rLoc = 3040;
+		rLoc = 1590;
 		rType = 0;
 		vrLen = 1559;
 		vrLoc = 1839;
@@ -3680,7 +3680,7 @@
 		fRef = 034126C01135706E00BE6819 /* PvPController.m */;
 		name = "PvPController.m: 344";
 		rLen = 0;
-		rLoc = 10561;
+		rLoc = 4521;
 		rType = 0;
 		vrLen = 845;
 		vrLoc = 9831;
@@ -3709,7 +3709,7 @@
 		fRef = 7DD03F0B0D163F44000CC1A6 /* WaypointController.m */;
 		name = "WaypointController.m: 1280";
 		rLen = 0;
-		rLoc = 39386;
+		rLoc = 2813;
 		rType = 0;
 		vrLen = 1271;
 		vrLoc = 2542;
@@ -3729,7 +3729,7 @@
 		fRef = 7DD03F0B0D163F44000CC1A6 /* WaypointController.m */;
 		name = "WaypointController.m: 1280";
 		rLen = 0;
-		rLoc = 39386;
+		rLoc = 2813;
 		rType = 0;
 		vrLen = 1331;
 		vrLoc = 2168;
@@ -3756,7 +3756,7 @@
 		fRef = 7DAAE7200D14897D003F1E3C /* MemoryAccess.m */;
 		name = "MemoryAccess.m: 98";
 		rLen = 0;
-		rLoc = 3040;
+		rLoc = 1590;
 		rType = 0;
 		vrLen = 1559;
 		vrLoc = 1839;
@@ -3854,8 +3854,8 @@
 		isa = PBXTextBookmark;
 		fRef = 7DD03F340D163F9A000CC1A6 /* Route.m */;
 		name = "Route.m: 102";
-		rLen = 6;
-		rLoc = 2299;
+		rLen = 0;
+		rLoc = 972;
 		rType = 0;
 		vrLen = 1494;
 		vrLoc = 1738;
@@ -3872,7 +3872,7 @@
 		fRef = 03981E77112B898E0081835F /* MovementController.m */;
 		name = "MovementController.m: 1823";
 		rLen = 0;
-		rLoc = 59641;
+		rLoc = 5863;
 		rType = 0;
 		vrLen = 1745;
 		vrLoc = 52613;
@@ -3892,7 +3892,7 @@
 		fRef = 03981E77112B898E0081835F /* MovementController.m */;
 		name = "MovementController.m: 1823";
 		rLen = 0;
-		rLoc = 59641;
+		rLoc = 5863;
 		rType = 0;
 		vrLen = 1745;
 		vrLoc = 52613;
@@ -3947,8 +3947,8 @@
 	03AF55791295AB3D00176881 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 7DD03F340D163F9A000CC1A6 /* Route.m */;
-		rLen = 6;
-		rLoc = 2299;
+		rLen = 0;
+		rLoc = 972;
 		rType = 0;
 	};
 	03AF557A1295AB3D00176881 /* PBXTextBookmark */ = {
@@ -3956,10 +3956,67 @@
 		fRef = 7DD03F340D163F9A000CC1A6 /* Route.m */;
 		name = "Route.m: 109";
 		rLen = 0;
-		rLoc = 2667;
+		rLoc = 972;
 		rType = 0;
 		vrLen = 1849;
 		vrLoc = 1590;
+	};
+	03AF557D1295ABBB00176881 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7DAAE7190D148972003F1E3C /* Controller.m */;
+		name = "Controller.m: 1535";
+		rLen = 0;
+		rLoc = 56069;
+		rType = 0;
+		vrLen = 618;
+		vrLoc = 32244;
+	};
+	03AF557E1295ABBB00176881 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 03627B67126DD011001BD472 /* wax_instance.m */;
+		name = "wax_instance.m: 457";
+		rLen = 9;
+		rLoc = 16731;
+		rType = 0;
+		vrLen = 2076;
+		vrLoc = 15951;
+	};
+	03AF557F1295ABBB00176881 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 03627B88126DD011001BD472 /* wax.m */;
+		name = "wax.m: 197";
+		rLen = 7;
+		rLoc = 5502;
+		rType = 0;
+		vrLen = 1357;
+		vrLoc = 4267;
+	};
+	03AF55801295ABBB00176881 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 03627B65126DD011001BD472 /* wax_helpers.m */;
+		rLen = 1;
+		rLoc = 68;
+		rType = 1;
+	};
+	03AF55811295ABBB00176881 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 03627B65126DD011001BD472 /* wax_helpers.m */;
+		name = "wax_helpers.m: 69";
+		rLen = 48;
+		rLoc = 1526;
+		rType = 0;
+		vrLen = 1122;
+		vrLoc = 1014;
+	};
+	03AF55841295ABBF00176881 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7DD03F340D163F9A000CC1A6 /* Route.m */;
+		name = "Route.m: 120";
+		rLen = 0;
+		rLoc = 3006;
+		rType = 0;
+		vrLen = 1800;
+		vrLoc = 1638;
 	};
 	03BB44E91231806F00F9DA66 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -4425,7 +4482,7 @@
 		fRef = 03627B88126DD011001BD472 /* wax.m */;
 		name = "wax.m: 257";
 		rLen = 0;
-		rLoc = 7009;
+		rLoc = 7008;
 		rType = 0;
 		vrLen = 920;
 		vrLoc = 6172;
@@ -5053,6 +5110,12 @@
 			03AF55781295AB3D00176881 /* PBXTextBookmark */ = 03AF55781295AB3D00176881 /* PBXTextBookmark */;
 			03AF55791295AB3D00176881 /* PBXTextBookmark */ = 03AF55791295AB3D00176881 /* PBXTextBookmark */;
 			03AF557A1295AB3D00176881 /* PBXTextBookmark */ = 03AF557A1295AB3D00176881 /* PBXTextBookmark */;
+			03AF557D1295ABBB00176881 /* PBXTextBookmark */ = 03AF557D1295ABBB00176881 /* PBXTextBookmark */;
+			03AF557E1295ABBB00176881 /* PBXTextBookmark */ = 03AF557E1295ABBB00176881 /* PBXTextBookmark */;
+			03AF557F1295ABBB00176881 /* PBXTextBookmark */ = 03AF557F1295ABBB00176881 /* PBXTextBookmark */;
+			03AF55801295ABBB00176881 /* PBXTextBookmark */ = 03AF55801295ABBB00176881 /* PBXTextBookmark */;
+			03AF55811295ABBB00176881 /* PBXTextBookmark */ = 03AF55811295ABBB00176881 /* PBXTextBookmark */;
+			03AF55841295ABBF00176881 /* PBXTextBookmark */ = 03AF55841295ABBF00176881 /* PBXTextBookmark */;
 			03BB44E91231806F00F9DA66 = 03BB44E91231806F00F9DA66 /* PBXTextBookmark */;
 			03BB46BB1236A73C00F9DA66 = 03BB46BB1236A73C00F9DA66 /* PBXTextBookmark */;
 			03D3F862127624F20046E2EB = 03D3F862127624F20046E2EB /* PBXTextBookmark */;
@@ -5631,9 +5694,9 @@
 	};
 	7DD03F340D163F9A000CC1A6 /* Route.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1447, 1794}}";
-			sepNavSelRange = "{2667, 0}";
-			sepNavVisRange = "{1590, 1849}";
+			sepNavIntBoundsRect = "{{0, 0}, {1440, 1794}}";
+			sepNavSelRange = "{3006, 0}";
+			sepNavVisRange = "{1638, 1800}";
 		};
 	};
 	7DD3D4090D1B2FEB0023D097 /* SpellController.h */ = {

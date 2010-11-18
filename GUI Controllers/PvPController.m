@@ -145,11 +145,11 @@
 	
 	// found a new one
 	if ( newRC ){
-		//PGLog( @"[PvP] Found route collection for %@, 0x%X vs. 0x%X", bg, bg.routeCollection, newRC);
+		//PGLog(@"[PvP] Found route collection for %@, 0x%X vs. 0x%X", bg, bg.routeCollection, newRC);
 		bg.routeCollection = newRC;
 	}
 	else{
-		PGLog( @"[PvP] Didn't find for %@? %@", bg, bg.routeCollection);
+		PGLog(@"[PvP] Didn't find for %@? %@", bg, bg.routeCollection);
 		bg.routeCollection = nil;
 	}
 }
@@ -194,7 +194,7 @@
 	
     //[ruleTable reloadData];
     
-    PGLog( @"Added behavior: %@", [behavior name]);
+    PGLog(@"Added behavior: %@", [behavior name]);
 }
 
 #pragma mark UI
@@ -291,7 +291,7 @@
 			[self addBehavior: importedBehavior];
 		}
 		else{
-			PGLog( @"[PvP] Error on importing behavior, object %@", importedBehavior);
+			PGLog(@"[PvP] Error on importing behavior, object %@", importedBehavior);
 		}
     }
     
@@ -338,10 +338,10 @@
 	
 	for ( PvPBehavior *behavior in self.behaviors ){
 		
-		PGLog( @"%@ %d 0x%X", behavior, [behavior changed], behavior);
+		PGLog(@"%@ %d 0x%X", behavior, [behavior changed], behavior);
 		
 		if ( behavior.changed ){
-			PGLog( @"[PvP] Saving %@ 0x%X", behavior, behavior);
+			PGLog(@"[PvP] Saving %@ 0x%X", behavior, behavior);
 			
 			[behavior setChanged:NO];
 			

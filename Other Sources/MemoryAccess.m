@@ -44,7 +44,7 @@ static MemoryAccess *sharedMemoryAccess = nil;
 - (id)initWithPID:(pid_t)PID {
     [super init];
     AppPid = PID;
-    //PGLog( @"Got WoW PID: %d; GodMode: %d", PID, MEMORY_GOD_MODE);
+    //PGLog(@"Got WoW PID: %d; GodMode: %d", PID, MEMORY_GOD_MODE);
     task_for_pid(current_task(), AppPid, &MySlaveTask);
     
     _loaderDict = [[NSMutableDictionary dictionary] retain];
@@ -83,7 +83,7 @@ static MemoryAccess *sharedMemoryAccess = nil;
         usleep(50000);
         err = GetProcessForPID(AppPid, &psn);
         if( err != noErr) {
-            PGLog( @"appPID = %d; err = %d; pSN = { %d, %d }", AppPid, err, psn.lowLongOfPSN, psn.highLongOfPSN);
+            PGLog(@"appPID = %d; err = %d; pSN = { %d, %d }", AppPid, err, psn.lowLongOfPSN, psn.highLongOfPSN);
             return NO;
         }
     }
@@ -95,7 +95,7 @@ static MemoryAccess *sharedMemoryAccess = nil;
 }
 
 - (void)printLoadCount {
-    PGLog( @"%@ has processed %d reads.", self, readsProcessed);
+    PGLog(@"%@ has processed %d reads.", self, readsProcessed);
 }
 
 - (int)loadCount {

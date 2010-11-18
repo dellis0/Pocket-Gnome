@@ -194,7 +194,7 @@ static void addGlobals(lua_State *L) {
     NSError *error = nil;
     [[NSFileManager defaultManager] createDirectoryAtPath:cachePath withIntermediateDirectories:YES attributes: nil error:&error];
     if (error) {
-        wax_log(@"Error creating cache path. %@", [error localizedDescription]);
+        wax_log("Error creating cache path. %@", [error localizedDescription]);
     }
 }
 

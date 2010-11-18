@@ -388,7 +388,7 @@ enum ItemFlags
     [_connection release];      _connection = nil;
     [_downloadData release];    _downloadData = nil;
     // inform the user
-    PGLog( @"Connection failed! Error - %@ %@",
+    PGLog(@"Connection failed! Error - %@ %@",
           [error localizedDescription],
           [[error userInfo] objectForKey: NSErrorFailingURLStringKey]);
 }
@@ -408,7 +408,7 @@ enum ItemFlags
         
         // check to see if this is a valid item
         if([scanner scanUpToString: @"Error - Wowhead" intoString: nil] && ![scanner isAtEnd]) {
-            PGLog( @"Item %@ does not exist.", self);
+            PGLog(@"Item %@ does not exist.", self);
             return;
         } else {
             [scanner setScanLocation: 0];
@@ -420,7 +420,7 @@ enum ItemFlags
             if([scanner scanUpToString: @"]]></name>" intoString: &newName]) {
                 if(newName && [newName length]) {
                     [self setName: newName];
-                    //PGLog( @"Loaded name: %@", newName);
+                    //PGLog(@"Loaded name: %@", newName);
                     [[NSNotificationCenter defaultCenter] postNotificationName: ItemNameLoadedNotification object: self];
                 }
             }

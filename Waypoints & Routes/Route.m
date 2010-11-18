@@ -48,8 +48,8 @@
     Route *copy = [[[self class] allocWithZone: zone] init];
     copy.waypoints = self.waypoints;
     
-    // PGLog( @"Old route: %@", self.waypoints);
-    // PGLog( @"New route: %@", copy.waypoints);
+    // PGLog(@"Old route: %@", self.waypoints);
+    // PGLog(@"New route: %@", copy.waypoints);
     
     return copy;
 }
@@ -92,14 +92,14 @@
     float minDist = INFINITY, tempDist = 0;
     for ( Waypoint *waypoint in [self waypoints] ) {
         tempDist = [position distanceToPosition: [waypoint position]];
-		//PGLog( @" %0.2f < %0.2f  %@", tempDist, minDist, waypoint);
+		//PGLog(@" %0.2f < %0.2f  %@", tempDist, minDist, waypoint);
         if ( (tempDist < minDist) && (tempDist >= 0.0f) ) {
             minDist = tempDist;
             closestWP = waypoint;
         }
     }
 
-	PGLog( @"Closest WP found at a distance of %0.2f  Vertical Distance: %0.2f Total waypoints searched: %d", minDist, [position verticalDistanceToPosition:[closestWP position]], [[self waypoints] count]);
+	PGLog(@"Closest WP found at a distance of %0.2f  Vertical Distance: %0.2f Total waypoints searched: %d", minDist, [position verticalDistanceToPosition:[closestWP position]], [[self waypoints] count]);
 	
     return [[closestWP retain] autorelease];
 }
@@ -109,7 +109,7 @@
         PGLog(@"addWaypoint: adding waypoint");
         [_waypoints addObject: waypoint];
    } else {
-        PGLog( @"addWaypoint: failed; waypoint is nil");
+        PGLog(@"addWaypoint: failed; waypoint is nil");
    }
 }
 
@@ -117,7 +117,7 @@
     if(waypoint != nil && index >= 0 && index <= [_waypoints count])
         [_waypoints insertObject: waypoint atIndex: index];
     else
-        PGLog( @"insertWaypoint:atIndex: failed; either waypoint is nil or index is out of bounds");
+        PGLog(@"insertWaypoint:atIndex: failed; either waypoint is nil or index is out of bounds");
 }
 
 - (void)removeWaypoint: (Waypoint*)waypoint {

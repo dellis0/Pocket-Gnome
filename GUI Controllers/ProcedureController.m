@@ -164,7 +164,7 @@
 
     [ruleTable reloadData];
     
-    //PGLog( @"Added behavior: %@", [behavior name]);
+    //PGLog(@"Added behavior: %@", [behavior name]);
 }
 
 - (IBAction)createBehavior: (id)sender {
@@ -261,11 +261,11 @@
         
         if( (Rule*)contextInfo ) {
             // we are editing (replacing) a rule
-            //PGLog( @"Replacing with rule: %@", rule);
+            //PGLog(@"Replacing with rule: %@", rule);
             [[self currentProcedure] replaceRuleAtIndex: [ruleTable selectedRow] withRule: rule];
         } else {
             // we are adding a rule
-            //PGLog( @"Adding new rule: %@", rule);
+            //PGLog(@"Adding new rule: %@", rule);
             [[self currentProcedure] addRule: rule];
         }
         
@@ -498,7 +498,7 @@
     while(row != NSNotFound) {
         if([[self currentProcedure] ruleAtIndex: row]) {
             Rule *rule = [[self currentProcedure] ruleAtIndex: row];
-            // PGLog( @"Copy rule: %@, (0x%X)", rule, &rule);
+            // PGLog(@"Copy rule: %@, (0x%X)", rule, &rule);
             [rulesToCopy addObject: rule];
             if(row == [selectedRows lastIndex]) [rulesDescription appendString: [rule description]];
             else                                [rulesDescription appendFormat: @"%@\n", [rule description]];
@@ -533,7 +533,7 @@
             else                pasteRow++;
             
             for(Rule *rule in copiedRules) {
-                // PGLog( @"Pasting rule: %@ (0x%X)", rule, &rule);
+                // PGLog(@"Pasting rule: %@ (0x%X)", rule, &rule);
                 [[self currentProcedure] insertRule: rule atIndex: pasteRow];
             }
             
@@ -604,7 +604,7 @@
     int dragRow = [rowIndexes firstIndex];
     
     if(dragRow < row) row--;
-    //PGLog( @"Got drag for row %d to row %d", dragRow, row);
+    //PGLog(@"Got drag for row %d to row %d", dragRow, row);
     
     // Move the specified row to its new location...
     Rule *dragRule = [[self currentProcedure] ruleAtIndex: dragRow];

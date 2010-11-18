@@ -20,7 +20,7 @@
     if (self != nil) {
 		_units = nil;
         if(![NSBundle loadNibNamed: @"InteractNPCAction" owner: self]) {
-            PGLog( @"Error loading InteractNPCAction.nib.");
+            PGLog(@"Error loading InteractNPCAction.nib.");
             
             [self release];
             self = nil;

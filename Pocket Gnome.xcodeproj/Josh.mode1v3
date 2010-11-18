@@ -335,7 +335,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>03AF557A1295AB3D00176881</string>
+										<string>03AF55841295ABBF00176881</string>
 										<key>history</key>
 										<array>
 											<string>03D9CF10118B51C6004F0A52</string>
@@ -1037,7 +1037,7 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CDD528C0622207200134675</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>wax_instance.m</string>
+										<string>wax_helpers.m</string>
 										<key>StatusBarVisibility</key>
 										<true/>
 									</dict>

@@ -21,7 +21,7 @@
     if (self != nil) {
 		_spells = nil;
         if(![NSBundle loadNibNamed: @"SpellAction" owner: self]) {
-            PGLog( @"Error loading SpellAction.nib.");
+            PGLog(@"Error loading SpellAction.nib.");
             
             [self release];
             self = nil;
