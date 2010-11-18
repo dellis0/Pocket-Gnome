@@ -136,7 +136,7 @@ static FileController *_sharedFileController = nil;
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	NSString *filePath = [self pathWithFilename:filename];
 	
-	log(LOG_FILEMANAGER, @"deleting %@", filePath);
+	PGLog( @"deleting %@", filePath);
 	
 	if ( [fileManager fileExistsAtPath: filePath] ){
 		NSError *error = nil;

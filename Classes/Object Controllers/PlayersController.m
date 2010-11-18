@@ -99,7 +99,7 @@ static PlayersController *sharedPlayers = nil;
 - (BOOL)addPlayerName: (NSString*)name withGUID:(UInt64)guid{
 	
 	if ( name == nil ){
-		//log(LOG_GENERAL, @"[Players] Name not added for 0x%qX, not found", guid);
+		//PGLog( @"[Players] Name not added for 0x%qX, not found", guid);
 		return NO;
 	}
 	
@@ -182,7 +182,7 @@ static PlayersController *sharedPlayers = nil;
             BOOL isHostile = [playerData isHostileWithFaction: faction];
 			BOOL isNeutral = (!isHostile && ![playerData isFriendlyWithFaction: faction]);
 			
-			//log(LOG_GENERAL, @"%d %d (%d || %d || %d) %d %d %d %d %@", [unit isValid], ![unit isDead], (friendly && isFriendly), (neutral && isNeutral), (hostile && isHostile), ((unitLevel >= lowLevel) && (unitLevel <= highLevel)), [unit isSelectable], 
+			//PGLog( @"%d %d (%d || %d || %d) %d %d %d %d %@", [unit isValid], ![unit isDead], (friendly && isFriendly), (neutral && isNeutral), (hostile && isHostile), ((unitLevel >= lowLevel) && (unitLevel <= highLevel)), [unit isSelectable], 
 			//        [unit isAttackable],  [unit isPVP], unit);
 			
             // only include:
@@ -195,7 +195,7 @@ static PlayersController *sharedPlayers = nil;
                && [unit isSelectable]                                           // 5) units that are selectable
                && [unit isAttackable]/*                                           // 6) units that are attackable
 									  && [unit isPVP]*/ ){                                                // 7) units that are PVP
-										  //log(LOG_GENERAL, @"[PlayersController] Adding player %@", unit);
+										  //PGLog( @"[PlayersController] Adding player %@", unit);
 										  
 										  [unitsWithinRange addObject: unit];
 										  
@@ -203,14 +203,14 @@ static PlayersController *sharedPlayers = nil;
         }
     }
 	
-	//log(LOG_GENERAL, @"[PlayersController] Found %d players", [unitsWithinRange count]);
+	//PGLog( @"[PlayersController] Found %d players", [unitsWithinRange count]);
     
     return unitsWithinRange;
 }
 
 - (BOOL)playerWithinRangeOfUnit: (float)distance Unit:(Unit*)unit includeFriendly:(BOOL)friendly includeHostile:(BOOL)hostile {
 	
-	log(LOG_DEV, @"checking distance %0.2f  %@ %d %d", distance, unit, friendly, hostile);
+	PGLog(@"checking distance %0.2f  %@ %d %d", distance, unit, friendly, hostile);
 	Position *position = [unit position];
 	
 	// loop through all players
@@ -225,7 +225,7 @@ static PlayersController *sharedPlayers = nil;
 			(!friendly || (friendly && !isHostile)) &&      // 2 - friendly
 			(!hostile || (hostile && isHostile))            // 3 - hostile
 			){
-			log(LOG_GENERAL, @"[Loot] Player %@ found %0.2f yards away! I scared! Friendly?(%d)  Hostile?(%d)", player, range, friendly, hostile);
+			PGLog( @"[Loot] Player %@ found %0.2f yards away! I scared! Friendly?(%d)  Hostile?(%d)", player, range, friendly, hostile);
 			return YES;
 		}
 	}

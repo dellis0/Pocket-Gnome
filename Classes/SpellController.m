@@ -133,7 +133,7 @@ static SpellController *sharedSpells = nil;
     }
     
     if(numLoaded > 0) {
-        // log(LOG_GENERAL, @"[Spells] Loading %d unknown spells from wowhead.", numLoaded);
+        // PGLog( @"[Spells] Loading %d unknown spells from wowhead.", numLoaded);
     }
 }
 
@@ -205,7 +205,7 @@ static SpellController *sharedSpells = nil;
 		int32_t totalMounts = 0;
 		[memory loadDataForObject: self atAddress: companionOffset + 0x10 Buffer: (Byte *)&totalMounts BufLength: sizeof(totalMounts)];
 		
-		log(LOG_DEV, @"[Mount] You have %d mounts, loading!", totalMounts);
+		PGLog(@"[Mount] You have %d mounts, loading!", totalMounts);
 		
 		// grab the pointer to the list
 		if([memory loadDataForObject: self atAddress: companionOffset + 0x14 Buffer: (Byte *)&mountAddress BufLength: sizeof(mountAddress)] && mountAddress) {
@@ -220,13 +220,13 @@ static SpellController *sharedSpells = nil;
 						// create a new spell if necessary
 						spell = [Spell spellWithID: [NSNumber numberWithUnsignedInt: value]];
 						if ( !spell ){
-							log(LOG_GENERAL, @"[Spell] Mount %d not found!", value );
+							PGLog( @"[Spell] Mount %d not found!", value );
 							continue;
 						}
 						
 						// spell isn't a mount? snap we probably need to reload it's data!
 						if ( ![spell isMount] ){
-							log(LOG_GENERAL, @"[Spell] Mount %d isn't registered as a mount! Reloading data", value);
+							PGLog( @"[Spell] Mount %d isn't registered as a mount! Reloading data", value);
 							[spell reloadSpellData];
 						}
 						
@@ -240,7 +240,7 @@ static SpellController *sharedSpells = nil;
 			}
 		}
 		
-		//log(LOG_GENERAL, @"[Mount] Broke after search of %d mounts", i);
+		//PGLog( @"[Mount] Broke after search of %d mounts", i);
 	}
     
     // update list of known spells
@@ -324,7 +324,7 @@ static SpellController *sharedSpells = nil;
 
 - (Spell*)spellForName: (NSString*)name {
     if(!name || ![name length]) return nil;
-    //log(LOG_GENERAL, @"[Spell] Searching for spell \"%@\"", name);
+    //PGLog( @"[Spell] Searching for spell \"%@\"", name);
 	
 	// always return the highest one!
 	UInt32 spellID = 0;
@@ -416,11 +416,11 @@ static SpellController *sharedSpells = nil;
 		
 		// make sure we can cast the spell!
 		if ( [self isUsableAction:[[spell ID] intValue]] ){
-			log(LOG_MOUNT, @"Found usable mount! %@", spell);
+			PGLog( @"Found usable mount! %@", spell);
 			return spell;
 		}
 		
-		log(LOG_GENERAL, @"[Mount] Unable to verify spell %@, trying to find another (if no mount is on an action bar this will fail forever).", spell);
+		PGLog( @"[Mount] Unable to verify spell %@, trying to find another (if no mount is on an action bar this will fail forever).", spell);
 		
 		// this spell failed, remove it so we don't select it again
 		[mounts removeObjectAtIndex:randomMount];
@@ -445,7 +445,7 @@ static SpellController *sharedSpells = nil;
     if(![spell ID]) return NO;
     if([[spell ID] unsignedIntValue] > 1000000) return NO;
     if( ![self spellForID: [spell ID]] ) {
-        // log(LOG_GENERAL, @"Adding spell %@ as recognized.", spell);
+        // PGLog( @"Adding spell %@ as recognized.", spell);
         [_spellBook setObject: spell forKey: [spell ID]];
         [self synchronizeSpells];
         return YES;
@@ -775,7 +775,7 @@ static SpellController *sharedSpells = nil;
 	[memory loadDataForObject: self atAddress: [offsetController offset:@"Lua_IsUsableAction"] + (slot*4) Buffer: (Byte *)&isUsable BufLength: sizeof(isUsable)];
 	[memory loadDataForObject: self atAddress: [offsetController offset:@"Lua_IsUsableActionNotEnough"] + (slot*4) Buffer: (Byte *)&dueToMana BufLength: sizeof(dueToMana)];
 	
-	//log(LOG_GENERAL, @" [Spell] For slot 0x%X, usable? %d due to mana? %d", slot, isUsable, dueToMana);
+	//PGLog( @" [Spell] For slot 0x%X, usable? %d due to mana? %d", slot, isUsable, dueToMana);
 	
 	// yay! we can use this ability!
 	if ( isUsable && !dueToMana ){
@@ -831,14 +831,14 @@ static SpellController *sharedSpells = nil;
 	
 	return NO;
 	
-	//log(LOG_GENERAL, @"Spell offset: 0x%X", spellOffset);
+	//PGLog( @"Spell offset: 0x%X", spellOffset);
 
 
 	
 	
 	/*UInt32 hotbarBaseOffset = [offsetController offset:@"HOTBAR_BASE_STATIC"];
 	 
-	 log(LOG_GENERAL, @"writing to 0x%X", hotbarBaseOffset + BAR6_OFFSET);
+	 PGLog( @"writing to 0x%X", hotbarBaseOffset + BAR6_OFFSET);
 	 
 	 // get the old spell
 	 UInt32 oldActionID = 0;

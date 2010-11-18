@@ -15,7 +15,6 @@
 @class MovementController;
 @class PlayerDataController;
 @class PlayersController;
-@class BlacklistController;
 @class AuraController;
 @class MacroController;
 @class BindingsController;
@@ -35,7 +34,6 @@
     IBOutlet MobController			*mobController;
     IBOutlet ChatController			*chatController;
     IBOutlet MovementController		*movementController;
-	IBOutlet BlacklistController	*blacklistController;
 	IBOutlet AuraController			*auraController;
 	IBOutlet MacroController		*macroController;
 	IBOutlet BindingsController		*bindingsController;

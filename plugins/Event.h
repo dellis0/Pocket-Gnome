@@ -38,10 +38,15 @@ typedef enum {
 
 @interface Event : NSObject {
 	
+	BOOL _exclusive;	// can only ONE plugin hook this event?
 	PG_EVENT_TYPE _type;
 	NSString *_selector;
 }
 
-//+ (id)eventWithType: (PG_EVENT_TYPE)type andSelector:(NSString*)selector;
++ (id)eventWithType: (PG_EVENT_TYPE)type andSelector:(NSString*)selector;
+
+@property (readonly) PG_EVENT_TYPE type;
+@property (readonly) SEL selector;
+@property (assign) BOOL exclusive;
 
 @end

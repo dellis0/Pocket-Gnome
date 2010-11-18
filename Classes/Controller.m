@@ -19,7 +19,6 @@
 #import "PlayerDataController.h"
 #import "MemoryViewController.h"
 #import "PlayersController.h"
-#import "CorpseController.h"
 #import "OffsetController.h"
 #import "StatisticsController.h"
 #import "ObjectsController.h"
@@ -218,7 +217,7 @@ static Controller* sharedController = nil;
     [GrowlApplicationBridge setGrowlDelegate: self];
     [GrowlApplicationBridge setWillRegisterWhenGrowlIsReady: YES];
     /*if( [GrowlApplicationBridge isGrowlInstalled] && [GrowlApplicationBridge isGrowlRunning]) {
-        log(LOG_CONTROLLER, @"Growl running.");
+        PGLog(@"Growl running.");
         [GrowlApplicationBridge notifyWithTitle: @"RUNNING"
                                     description: [NSString stringWithFormat: @"You have reached level %d.", 1]
                                notificationName: @"PlayerLevelUp"
@@ -227,7 +226,7 @@ static Controller* sharedController = nil;
                                        isSticky: NO
                                    clickContext: nil];             
     } else {
-        log(LOG_CONTROLLER, @"Growl not running.");
+        PGLog(@"Growl not running.");
     }*/
 	
 }
@@ -330,13 +329,13 @@ static Controller* sharedController = nil;
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data { return; }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    // log(LOG_CONTROLLER, @"Registration connection error.");
+    // PGLog(@"Registration connection error.");
     [connection autorelease];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    // log(LOG_CONTROLLER, @"Registration connection done.");
+    // PGLog(@"Registration connection done.");
     [connection autorelease];
 }
 
@@ -445,7 +444,7 @@ typedef struct NameObjectStruct{
 			[memory loadDataForObject: self atAddress: curObjAddress Buffer: (Byte*)&nameListStruct BufLength: sizeof(nameListStruct)];
 		}
 		
-		//log(LOG_CONTROLLER, @"[Controller] Player names updated after %d memory reads", [memory loadCount]);
+		//PGLog(@"[Controller] Player names updated after %d memory reads", [memory loadCount]);
 	}
 }
 
@@ -543,7 +542,7 @@ typedef struct NameObjectStruct{
 				if ( guid == GUID_LOW32(_globalGUID) ){
 					if ( objectAddress != [playerData baselineAddress] ){
 						
-						log(LOG_CONTROLLER, @"[Controller] Player base address 0x%X changed to 0x%X, verifying change...", [playerData baselineAddress], objectAddress);
+						PGLog(@"[Controller] Player base address 0x%X changed to 0x%X, verifying change...", [playerData baselineAddress], objectAddress);
 						
 						// reset mobs, nodes, and inventory for the new player address
 						[mobController resetAllObjects];
@@ -554,13 +553,13 @@ typedef struct NameObjectStruct{
 						// tell our player controller its new address
 						[playerData setStructureAddress: objAddress];
 						Player *player = [playerData player];
-						log(LOG_CONTROLLER, @"[Player] Level %d %@ %@", [player level], [Unit stringForRace: [player race]], [Unit stringForClass: [player unitClass]]);
+						PGLog(@"[Player] Level %d %@ %@", [player level], [Unit stringForRace: [player race]], [Unit stringForClass: [player unitClass]]);
 						
 						[self setCurrentState: playerValidState];
 					}			
 				}
 				
-				//log(LOG_CONTROLLER, @"Player GUID: 0x%X Yours: 0x%X 0x%qX", guid, GUID_LOW32(_globalGUID), _globalGUID);
+				//PGLog(@"Player GUID: 0x%X Yours: 0x%X 0x%qX", guid, GUID_LOW32(_globalGUID), _globalGUID);
 
 				[_players addObject: objAddress];
 				continue;
@@ -608,7 +607,7 @@ typedef struct NameObjectStruct{
 	
 	// grab our global GUID
 	[memory loadDataForObject: self atAddress: [offsetController offset:@"PLAYER_GUID_NAME"] Buffer: (Byte*)&_globalGUID BufLength: sizeof(_globalGUID)];
-	//log(LOG_CONTROLLER, @"[Controller] Player GUID: 0x%qX 0x%qX Low32:0x%X High32:0x%X HiPart:0x%X", _globalGUID, CFSwapInt64HostToLittle(_globalGUID), GUID_LOW32(_globalGUID), GUID_HIGH32(_globalGUID), GUID_HIPART(_globalGUID));
+	//PGLog(@"[Controller] Player GUID: 0x%qX 0x%qX Low32:0x%X High32:0x%X HiPart:0x%X", _globalGUID, CFSwapInt64HostToLittle(_globalGUID), GUID_LOW32(_globalGUID), GUID_HIGH32(_globalGUID), GUID_HIPART(_globalGUID));
 	
 	// object manager
 	if ( memory ){
@@ -619,7 +618,7 @@ typedef struct NameObjectStruct{
 			// our object manager has changed (wonder if this happens often?)
 			if ( _currentObjectManager > 0x0 && _currentObjectManager != objectManager ){
 				_validObjectListManager = NO;
-				log(LOG_CONTROLLER, @"[Controller] Object manager changed from 0x%X to 0x%X", _currentObjectManager, objectManager);
+				PGLog(@"[Controller] Object manager changed from 0x%X to 0x%X", _currentObjectManager, objectManager);
 			}
 			
 			_currentObjectManager = objectManager;
@@ -647,10 +646,10 @@ typedef struct NameObjectStruct{
         //NSDate *date = [NSDate date];
 		[memory resetLoadCount];
 		[self scanObjectList:memory];
-		//log(LOG_CONTROLLER, @"[Controller] Found %d objects in game with %d memory operations", _totalObjects, [memory loadCount]);
-		//log(LOG_CONTROLLER, @"New name scan took %.2f seconds and %d memory operations.", [date timeIntervalSinceNow]*-1.0, [memory loadCount]);
+		//PGLog(@"[Controller] Found %d objects in game with %d memory operations", _totalObjects, [memory loadCount]);
+		//PGLog(@"New name scan took %.2f seconds and %d memory operations.", [date timeIntervalSinceNow]*-1.0, [memory loadCount]);
 		
-        //log(LOG_CONTROLLER, @"Memory scan took %.4f sec for %d total objects.", [date timeIntervalSinceNow]*-1.0f, [_mobs count] + [_items count] + [_gameObjects count] + [_players count]);
+        //PGLog(@"Memory scan took %.4f sec for %d total objects.", [date timeIntervalSinceNow]*-1.0f, [_mobs count] + [_items count] + [_gameObjects count] + [_players count]);
         //date = [NSDate date];
         
         [mobController addAddresses: _mobs];
@@ -659,7 +658,7 @@ typedef struct NameObjectStruct{
         [playersController addAddresses: _players];
 		//[corpseController addAddresses: _corpses];
 		
-        //log(LOG_CONTROLLER, @"Controller adding took %.4f sec", [date timeIntervalSinceNow]*-1.0f);
+        //PGLog(@"Controller adding took %.4f sec", [date timeIntervalSinceNow]*-1.0f);
         //date = [NSDate date];
 		
         // clean-up; we don't need this crap sitting around
@@ -678,8 +677,8 @@ typedef struct NameObjectStruct{
 			[self setCurrentState: playerValidState];
 		}
         
-        //log(LOG_CONTROLLER, @"Total scan took %.4f sec", [start timeIntervalSinceNow]*-1.0f);
-        //log(LOG_CONTROLLER, @"-----------------");
+        //PGLog(@"Total scan took %.4f sec", [start timeIntervalSinceNow]*-1.0f);
+        //PGLog(@"-----------------");
     }
     
     // run this every second
@@ -876,7 +875,7 @@ typedef struct NameObjectStruct{
 
 - (void)setCurrentStatus: (NSString*)statusMsg {
 	
-	log(LOG_CONTROLLER, @"[Controller] Setting status to: %@", statusMsg);
+	PGLog(@"[Controller] Setting status to: %@", statusMsg);
 	
     NSString *currentText = [[currentStatusText stringValue] retain];
     [currentStatusText setStringValue: statusMsg];
@@ -955,7 +954,7 @@ typedef struct NameObjectStruct{
 - (MemoryAccess*)wowMemoryAccess {
     // dont do anything until the app finishes launching
     if(!_appFinishedLaunching) {
-        //log(LOG_CONTROLLER, @"App still launching; nil");
+        //PGLog(@"App still launching; nil");
         return nil;
     }
 
@@ -969,7 +968,7 @@ typedef struct NameObjectStruct{
         [self willChangeValueForKey: @"wowMemoryAccess"];
 
         // send notification of invalidity
-        log(LOG_CONTROLLER, @"Memory access is invalid.");
+        PGLog(@"Memory access is invalid.");
         [self setCurrentState: memoryInvalidState];
 
         [_wowMemoryAccess release];
@@ -984,13 +983,13 @@ typedef struct NameObjectStruct{
     
     if(_wowMemoryAccess == nil) {
         if([self isWoWOpen]) {
-            // log(LOG_CONTROLLER, @"Initializing memory access.");
+            // PGLog(@"Initializing memory access.");
             // otherwise, create one if possible
             pid_t wowPID = 0;
             ProcessSerialNumber wowPSN = [self getWoWProcessSerialNumber];
             OSStatus err = GetProcessPID(&wowPSN, &wowPID);
             
-            //log(LOG_CONTROLLER, @"Got PID: %d", wowPID);
+            //PGLog(@"Got PID: %d", wowPID);
             
             // make sure the old one is disposed of, just incase
             [_wowMemoryAccess release];
@@ -1004,23 +1003,23 @@ typedef struct NameObjectStruct{
                 
                 // send notification of validity
                 if(_wowMemoryAccess && [_wowMemoryAccess isValid]) {
-                    log(LOG_CONTROLLER, @"Memory access is valid for PID %d.", wowPID);
+                    PGLog(@"Memory access is valid for PID %d.", wowPID);
                     [self setCurrentState: memoryValidState];
                     [[NSNotificationCenter defaultCenter] postNotificationName: MemoryAccessValidNotification object: nil];
                     return [[_wowMemoryAccess retain] autorelease];
                 } else {
-                    log(LOG_CONTROLLER, @"Even after re-creation, memory access is nil (wowPID = %d).", wowPID);
+                    PGLog(@"Even after re-creation, memory access is nil (wowPID = %d).", wowPID);
                     return nil;
                 }
             } else {
-                log(LOG_CONTROLLER, @"Error %d while retrieving WoW's PID.", err);
+                PGLog(@"Error %d while retrieving WoW's PID.", err);
             }
         } else {
             [self setCurrentState: wowNotOpenState];
         }
     }
     
-    //log(LOG_CONTROLLER, @"Unable to get a handle on WoW's memory.");
+    //PGLog(@"Unable to get a handle on WoW's memory.");
     return nil;
 }
 
@@ -1072,10 +1071,10 @@ typedef struct NameObjectStruct{
         
         BOOL isDir;
         if ([[NSFileManager defaultManager] fileExistsAtPath: fullPath isDirectory: &isDir] && isDir) {
-            //log(LOG_CONTROLLER, @"Got full path: %@", fullPath);
+            //PGLog(@"Got full path: %@", fullPath);
             return fullPath;
         }
-        //log(LOG_CONTROLLER, @"Unable to get path (%@)", fullPath);
+        //PGLog(@"Unable to get path (%@)", fullPath);
     }
     return @"";
 }
@@ -1262,7 +1261,7 @@ typedef struct NameObjectStruct{
 				err = CGSGetWindowProperty(myConnectionID, window, (CGSValue)CFSTR("kCGSWindowTitle"), &windowTitle);
                 //if(titleKey) CFRelease(titleKey);
 				if((err == noErr) && windowTitle) {
-                    // log(LOG_CONTROLLER, @"%d: %@", window, windowTitle);
+                    // PGLog(@"%d: %@", window, windowTitle);
 					return window;
 				}
             }
@@ -1294,7 +1293,7 @@ typedef struct NameObjectStruct{
     CGRect windowRect;
 	int Connection = _CGSDefaultConnection();
 	int windowID = [self getWOWWindowID];
-	log(LOG_CONTROLLER, @"Connection: %d, Window id: %d", Connection, windowID);
+	PGLog(@"Connection: %d, Window id: %d", Connection, windowID);
     CGSGetWindowBounds(Connection, windowID, &windowRect);
     windowRect.origin.y += 22;      // cut off the title bar
     windowRect.size.height -= 22;
@@ -1338,46 +1337,46 @@ typedef struct NameObjectStruct{
     float ay = -[gP zPosition];
     float az = [gP yPosition];
     
-    log(LOG_CONTROLLER, @"Game position: { %.2f, %.2f, %.2f } (%@)", ax, ay, az, gP);
+    PGLog(@"Game position: { %.2f, %.2f, %.2f } (%@)", ax, ay, az, gP);
     
     float cx = -[cP xPosition];
     float cy = -[cP zPosition];
     float cz = [cP yPosition];
 
-    log(LOG_CONTROLLER, @"Camera position: { %.2f, %.2f, %.2f } (%@)", cx, cy, cz, cP);
+    PGLog(@"Camera position: { %.2f, %.2f, %.2f } (%@)", cx, cy, cz, cP);
     
     float facing = [self cameraFacing];
     if(facing > M_PI) facing -= 2*M_PI;
-    log(LOG_CONTROLLER, @"Facing: %.2f (%.2f), tilt = %.2f", facing, [self cameraFacing], [self cameraTilt]);
+    PGLog(@"Facing: %.2f (%.2f), tilt = %.2f", facing, [self cameraFacing], [self cameraTilt]);
     
     float ox = [self cameraTilt];
     float oy = -facing;
     float oz = 0;
     
-    log(LOG_CONTROLLER, @"Camera direction: { %.2f, %.2f, %.2f }", ox, oy, oz);
+    PGLog(@"Camera direction: { %.2f, %.2f, %.2f }", ox, oy, oz);
 
     
     float dx = cosf(oy) * ( sinf(oz) * (ay - cy) + cosf(oz) * (ax - cx)) - sinf(oy) * (az - cz);
     float dy = sinf(ox) * ( cosf(oy) * (az - cz) + sinf(oy) * ( sinf(oz) * (ay - cy) + cosf(oz) * (ax - cx))) + cosf(ox) * ( cosf(oz) * (ay - cy) - sinf(oz) * (ax - cx) );
     float dz = cosf(ox) * ( cosf(oy) * (az - cz) + sinf(oy) * ( sinf(oz) * (ay - cy) + cosf(oz) * (ax - cx))) - sinf(ox) * ( cosf(oz) * (ay - cy) - sinf(oz) * (ax - cx) );
     
-    log(LOG_CONTROLLER, @"Calcu position: { %.2f, %.2f, %.2f }", dx, dy, dz);
+    PGLog(@"Calcu position: { %.2f, %.2f, %.2f }", dx, dy, dz);
     
     float bx = (dx - cx) * (cz/dz);
     float by = (dy - cy) * (cz/dz);
 
-    log(LOG_CONTROLLER, @"Projected 2d position: { %.2f, %.2f }", bx, by);
+    PGLog(@"Projected 2d position: { %.2f, %.2f }", bx, by);
     
     if(dz <= 0) {
-        log(LOG_CONTROLLER, @"behind the camera1");
+        PGLog(@"behind the camera1");
         //return CGPointMake(-1, -1);
     }
     
     CGRect wowSize = [self wowWindowRect];
     CGPoint wowCenter = CGPointMake( wowSize.origin.x+wowSize.size.width/2.0f, wowSize.origin.y+wowSize.size.height/2.0f);
     
-    log(LOG_CONTROLLER, @"WowWindowSize: %@", NSStringFromRect(NSRectFromCGRect(wowSize)));
-    log(LOG_CONTROLLER, @"WoW Center: %@", NSStringFromPoint(NSPointFromCGPoint(wowCenter)));
+    PGLog(@"WowWindowSize: %@", NSStringFromRect(NSRectFromCGRect(wowSize)));
+    PGLog(@"WoW Center: %@", NSStringFromPoint(NSPointFromCGPoint(wowCenter)));
     
     float FOV1 = 0.1;
     float FOV2 = 3 /* 7.4 */ * wowSize.size.width;
@@ -1386,7 +1385,7 @@ typedef struct NameObjectStruct{
     
     // ensure on screen
     if(sx < wowSize.origin.x || sy < wowSize.origin.y || sx >= wowSize.origin.x+wowSize.size.width || sy >= wowSize.origin.y+wowSize.size.height) {
-        log(LOG_CONTROLLER, @"behind the camera2");
+        PGLog(@"behind the camera2");
         //return CGPointMake(-1, -1);
     }
     return CGPointMake(sx, sy);
@@ -1495,12 +1494,12 @@ typedef struct NameObjectStruct{
 }
 
 - (NSImage *) applicationIconForGrowl {
-    //log(LOG_CONTROLLER, @"applicationIconForGrowl");
+    //PGLog(@"applicationIconForGrowl");
     return [NSApp applicationIconImage]; // [NSImage imageNamed: @"gnome2"];
 }
 
 - (NSData *) applicationIconDataForGrowl {
-    //log(LOG_CONTROLLER, @"applicationIconDataForGrowl");
+    //PGLog(@"applicationIconDataForGrowl");
     return [[NSApp applicationIconImage] TIFFRepresentation];
 }
 
@@ -1519,7 +1518,7 @@ typedef struct NameObjectStruct{
 - (BOOL)updater: (SUUpdater *)updater shouldPostponeRelaunchForUpdate: (SUAppcastItem *)update untilInvoking: (NSInvocation *)invocation {
 	
     if( ![[self appName] isEqualToString: @"Pocket Gnome"] ) {
-		// log(LOG_CONTROLLER, @"[Update] We've been renamed.");
+		// PGLog(@"[Update] We've been renamed.");
         
         NSAlert *alert = [NSAlert alertWithMessageText: @"SECURITY ALERT: PLEASE BE AWARE" 
                                          defaultButton: @"Understood" 
@@ -1533,7 +1532,7 @@ typedef struct NameObjectStruct{
                             contextInfo: (void*)[invocation retain]];
         return YES;
     }
-    //log(LOG_CONTROLLER, @"[Update] Relaunching as expected.");
+    //PGLog(@"[Update] Relaunching as expected.");
     return NO;
 }
 
@@ -1640,6 +1639,7 @@ AEDisposeDesc(&targetProcess);
 #pragma mark LUA
 
 @synthesize botController;
+@synthesize movementController;
 @synthesize chatController;
 
 @end

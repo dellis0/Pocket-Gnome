@@ -16,7 +16,7 @@
     self = [super init];
     if (self != nil) {
         if(![NSBundle loadNibNamed: @"GateCondition" owner: self]) {
-            log(LOG_GENERAL, @"Error loading GateCondition.nib.");
+            PGLog( @"Error loading GateCondition.nib.");
             
             [self release];
             self = nil;

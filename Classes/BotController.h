@@ -39,6 +39,7 @@
 @class CombatProfile;
 @class PvPBehavior;
 @class Route;
+@class ScanGridView;
 
 @class PlayerDataController;
 @class PlayersController;
@@ -55,14 +56,11 @@
 @class Controller;
 @class WaypointController;
 @class ProcedureController;
-@class QuestController;
-@class CorpseController;
 @class LootController;
 @class FishController;
 @class MacroController;
 @class OffsetController;
 @class MemoryViewController;
-@class BlacklistController;
 @class StatisticsController;
 @class BindingsController;
 @class PvPController;
@@ -91,21 +89,44 @@
     IBOutlet WaypointController     *waypointController;
     IBOutlet ProcedureController    *procedureController;
 	IBOutlet MemoryViewController	*memoryViewController;
-	IBOutlet BlacklistController	*blacklistController;
 	IBOutlet StatisticsController	*statisticsController;
 	IBOutlet BindingsController		*bindingsController;
 	IBOutlet PvPController			*pvpController;
 	IBOutlet DatabaseManager		*databaseManager;
 	IBOutlet ProfileController		*profileController;
-	IBOutlet QuestController		*questController;
-	IBOutlet CorpseController		*corpseController;
 	IBOutlet PluginController		*pluginController;
 	
 	IBOutlet Route					*Route;	// is this right?
-
-	
 	IBOutlet NSButton *startStopButton;
-	
+    
+    IBOutlet id attackWithinText;
+    IBOutlet id routePopup;
+    IBOutlet id routePvPPopup;
+    IBOutlet id behaviorPopup;
+    IBOutlet id behaviorPvPPopup;
+    IBOutlet id combatProfilePopup;
+    IBOutlet id combatProfilePvPPopup;
+    IBOutlet id minLevelPopup;
+    IBOutlet id maxLevelPopup;
+    IBOutlet NSTextField *minLevelText, *maxLevelText;
+    IBOutlet NSButton *anyLevelCheckbox;
+    
+	// Log Out options
+	IBOutlet NSButton		*logOutOnBrokenItemsCheckbox;
+	IBOutlet NSButton		*logOutOnFullInventoryCheckbox;
+	IBOutlet NSButton		*logOutOnTimerExpireCheckbox;
+	IBOutlet NSButton		*logOutAfterStuckCheckbox;
+	IBOutlet NSButton		*logOutUseHearthstoneCheckbox;
+	IBOutlet NSTextField	*logOutDurabilityTextField;
+	IBOutlet NSTextField	*logOutAfterRunningTextField;
+
+	IBOutlet NSPanel *hotkeyHelpPanel;
+    IBOutlet NSPanel *lootHotkeyHelpPanel;
+	IBOutlet NSTextField *statusText;
+	IBOutlet NSTextField *runningTimer;
+    IBOutlet NSWindow *overlayWindow;
+    IBOutlet ScanGridView *scanGrid;
+
 	// view info
 	IBOutlet NSView *view;
 	NSSize minSectionSize, maxSectionSize;
@@ -124,7 +145,10 @@
     CombatProfile *_theCombatProfile;
 	PvPBehavior *_pvpBehavior;
 	
-	 BOOL _isBotting;
+	BOOL _isBotting;
+	
+	BOOL _useRoute;
+	BOOL _useRoutePvP;
 	
 }
 
@@ -132,10 +156,10 @@
 @property (readwrite, retain) RouteCollection *theRouteCollectionPvP;
 @property (readwrite, retain) RouteSet *theRouteSet;
 @property (readwrite, retain) RouteSet *theRouteSetPvP;
-@property (readonly, retain) Behavior *theBehavior;
-@property (readonly, retain) Behavior *theBehaviorPvP;
-@property (readonly, retain) CombatProfile *theCombatProfile;
-@property (readonly, retain) PvPBehavior *pvpBehavior;
+@property (readwrite, retain) Behavior *theBehavior;
+@property (readwrite, retain) Behavior *theBehaviorPvP;
+@property (readwrite, retain) CombatProfile *theCombatProfile;
+@property (readwrite, retain) PvPBehavior *pvpBehavior;
 
 @property (readonly) NSView *view;
 @property (readonly) NSString *sectionTitle;

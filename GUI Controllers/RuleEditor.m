@@ -114,7 +114,7 @@
         //[newRule setResultType: [conditionResultTypeSegment selectedTag]];
         //[newRule setActionID: [[resultActionDropdown selectedItem] tag]];
         
-        // log(LOG_GENERAL, @"Created Rule: %@", newRule);
+        // PGLog( @"Created Rule: %@", newRule);
     }
     
     return [newRule autorelease];
@@ -177,7 +177,7 @@
 }
 
 - (IBAction)addCondition:(id)sender {
-    //log(LOG_GENERAL, @"adding condition");
+    //PGLog( @"adding condition");
     
     int type = [[spellRuleTypeDropdown selectedItem] tag];
     ConditionController *newRule = nil;
@@ -389,7 +389,7 @@
 	ConditionController *condition = [[_conditionList objectAtIndex: dragRow] retain];
 	if ( !condition ) return NO;
 
-	log(LOG_DEV, @"Dropping %@ dragRow: %d row: %d", condition, dragRow, row)
+	PGLog(@"Dropping %@ dragRow: %d row: %d", condition, dragRow, row)
 
 	if(dragRow < row) row--;
 	[_conditionList removeObjectAtIndex: dragRow];

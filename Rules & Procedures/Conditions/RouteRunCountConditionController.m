@@ -16,7 +16,7 @@
     self = [super init];
     if (self != nil) {
         if(![NSBundle loadNibNamed: @"RouteRunCountCondition" owner: self]) {
-            log(LOG_GENERAL, @"Error loading RouteRunCountCondition.nib.");
+            PGLog( @"Error loading RouteRunCountCondition.nib.");
             
             [self release];
             self = nil;

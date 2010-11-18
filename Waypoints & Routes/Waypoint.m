@@ -101,7 +101,7 @@
 	if ( action != nil )
 		[_actions addObject:action];
     else
-        log(LOG_WAYPOINT, @"addAction: failed; action is nil");
+        PGLog( @"addAction: failed; action is nil");
 }
 
 - (void)setActions: (NSArray*)actions {

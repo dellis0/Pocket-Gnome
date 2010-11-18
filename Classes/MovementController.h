@@ -15,7 +15,6 @@
 @class PlayerDataController;
 @class AuraController;
 @class MacroController;
-@class BlacklistController;
 @class WaypointController;
 @class MobController;
 @class StatisticsController;
@@ -40,7 +39,7 @@
 #define NODE_DISTANCE_UNTIL_FISH		17.0f
 
 typedef enum MovementType {
-	MovementType_Mouse		= 0,
+	MovementType_Mouse		= 0, 
 	MovementType_Keyboard	= 1,
 	MovementType_CTM		= 2,
 } MovementType;
@@ -54,7 +53,6 @@ typedef enum MovementType {
 	IBOutlet PlayerDataController	*playerData;
 	IBOutlet AuraController			*auraController;
 	IBOutlet MacroController		*macroController;
-	IBOutlet BlacklistController	*blacklistController;
 	IBOutlet WaypointController		*waypointController;
 	IBOutlet MobController			*mobController;
 	IBOutlet StatisticsController	*statisticsController;

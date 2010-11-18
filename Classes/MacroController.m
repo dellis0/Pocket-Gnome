@@ -101,7 +101,7 @@
 	NSString *macroCommand = [macroData valueForKey:@"Macro"];
 	
 	if ( !macroCommand || [macroCommand length] == 0 ) {
-		log(LOG_MACRO, @"Using the key as a command!");
+		PGLog(@"Using the key as a command!");
 		macroCommand = key;
 	}
 
@@ -112,7 +112,7 @@
 
 		// hit escape to close the chat window if it's open
 		if ( [controller isWoWChatBoxOpen] ){
-			log(LOG_MACRO, @"Sending escape to close open chat!");
+			PGLog(@"Sending escape to close open chat!");
 			[chatController sendKeySequence: [NSString stringWithFormat: @"%c", kEscapeCharCode]];
 			usleep(100000);
 		}
@@ -122,7 +122,7 @@
 		usleep(100000);
 		[chatController sendKeySequence: [NSString stringWithFormat: @"%@%c", macroCommand, '\n']];
 		
-		log(LOG_MACRO, @"I just typed the '%@' command. I'm not really sure why.", key);
+		PGLog(@"I just typed the '%@' command. I'm not really sure why.", key);
 	}
 }
 
@@ -194,7 +194,7 @@
 	if ( macro ){
 		UInt32 macroID = [[macro number] unsignedIntValue];
 		
-		//log(LOG_MACRO, @"Executing macro '%@' with id 0x%X", key, macroID);
+		//PGLog(@"Executing macro '%@' with id 0x%X", key, macroID);
 		
 		[botController performAction:USE_MACRO_MASK + macroID];
 		usleep(100000);
@@ -230,7 +230,7 @@
 			// search for partial match!
 			NSRange range = [[macro body] rangeOfString : macroCommand];
 			if ( range.location != NSNotFound ) {
-				log(LOG_MACRO, @"Found partial match! '%@'", macroCommand);
+				PGLog(@"Found partial match! '%@'", macroCommand);
 				return macro;
 			}
 		}
@@ -278,7 +278,7 @@
 			// search for partial match!
 			NSRange range = [[macro body] rangeOfString : command];
 			if ( range.location != NSNotFound ) {
-				log(LOG_MACRO, @"Found partial match! '%@'", command);
+				PGLog(@"Found partial match! '%@'", command);
 				return [macro.number intValue];
 			}
 		}
@@ -363,12 +363,12 @@
 			newMacroBody[strlen(oldBody)] = '\0';
 			[memory saveDataForAddress: objectPtr+0x160 Buffer: (Byte *)newMacroBody BufLength:sizeof(newMacroBody)];
 			
-			log(LOG_MACRO, @"Completed execution of %@ using macro ID %d", macroCommand, macroID);
+			PGLog(@"Completed execution of %@ using macro ID %d", macroCommand, macroID);
 			
 			return YES;
 		}
 		else{
-			log(LOG_MACRO, @"Error, unable to find execute a null macro command!");
+			PGLog(@"Error, unable to find execute a null macro command!");
 		}
 	}
 	

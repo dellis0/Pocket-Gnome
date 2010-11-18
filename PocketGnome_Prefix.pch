@@ -4,7 +4,6 @@
 
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
-	#import "LogController.h"
 	#import "Globals.h"
     
     typedef UInt64 GUID;

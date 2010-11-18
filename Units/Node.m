@@ -396,7 +396,7 @@ enum eNodeNameStructFields {
     [_downloadData release]; _downloadData = nil;
  
     // inform the user
-    log(LOG_GENERAL, @"Connection failed! Error - %@ %@",
+    PGLog( @"Connection failed! Error - %@ %@",
           [error localizedDescription],
           [[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
 }

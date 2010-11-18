@@ -15,7 +15,7 @@
     self = [super init];
     if (self != nil) {
         if(![NSBundle loadNibNamed: @"SpellCooldown" owner: self]) {
-            log(LOG_GENERAL, @"Error loading SpellCooldown.nib.");
+            PGLog( @"Error loading SpellCooldown.nib.");
             
             [self release];
             self = nil;

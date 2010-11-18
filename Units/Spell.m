@@ -68,7 +68,7 @@
         if(self.name) {
             NSRange range = [self.name rangeOfString: @"html>"];
             if( ([self.name length] == 0) || (range.location != NSNotFound)) {
-                // log(LOG_GENERAL, @"Name for spell %@ is invalid.", self.ID);
+                // PGLog( @"Name for spell %@ is invalid.", self.ID);
                 self.name = nil;
             }
         }
@@ -364,7 +364,7 @@
     [_downloadData release]; _downloadData = nil;
  
     // inform the user
-    log(LOG_GENERAL, @"Connection failed! Error - %@ %@",
+    PGLog( @"Connection failed! Error - %@ %@",
           [error localizedDescription],
           [[error userInfo] objectForKey:NSErrorFailingURLStringKey]);
 }
@@ -405,12 +405,12 @@
                     break;
             }
             
-            log(LOG_GENERAL, @"Spell %d does not exist on wowhead.", spellID);
+            PGLog( @"Spell %d does not exist on wowhead.", spellID);
             return;
         } else {
             if( [scanner scanUpToString: @"Bad Request" intoString: nil] && ![scanner isAtEnd]) {
                 int spellID = [[self ID] intValue];
-                log(LOG_GENERAL, @"Error loading spell %d.", spellID);
+                PGLog( @"Error loading spell %d.", spellID);
                 return;
             } else {
                 [scanner setScanLocation: 0];
@@ -512,18 +512,18 @@
             float castTime = 0;
             if([scanner scanFloat: &castTime]) {
                 self.castTime = [NSNumber numberWithFloat: castTime];
-                // log(LOG_GENERAL, @"Loaded cast time %@ for spell %@", self.castTime, self);
+                // PGLog( @"Loaded cast time %@ for spell %@", self.castTime, self);
             } else {
                 if([scanner scanString: @"Instant" intoString: nil]) {
                     self.castTime = [NSNumber numberWithFloat: 0];
-                    // log(LOG_GENERAL, @"Loaded cast time instant! for spell %@", self);
+                    // PGLog( @"Loaded cast time instant! for spell %@", self);
                 } else {
-                    // log(LOG_GENERAL, @"Got nothing for %@", self);
+                    // PGLog( @"Got nothing for %@", self);
                     self.castTime = nil;
                 }
             }
         } else {
-            // log(LOG_GENERAL, @"No cast time entry for %@", self);
+            // PGLog( @"No cast time entry for %@", self);
             [scanner setScanLocation: scanSave];
             self.castTime = nil;
         }
@@ -568,7 +568,7 @@
         } else {
             [scanner setScanLocation: scanSave]; // some spells dont have cooldowns
 			
-			// log(LOG_GENERAL, @"Loaded: %@; %@ yards; %@ seconds; school: %@; dispel: %@", self.name, self.range, self.cooldown, self.school, self.dispelType);
+			// PGLog( @"Loaded: %@; %@ yards; %@ seconds; school: %@; dispel: %@", self.name, self.range, self.cooldown, self.school, self.dispelType);
         }
 		
 		
@@ -588,14 +588,14 @@
 		[scanner setScanLocation: scanSave];
 		
 		if ( [self.mount intValue] > 0 ){
-			//log(LOG_GENERAL, @"mount: %@  %@ %@", [self ID], self.mount, self.mechanic);
+			//PGLog( @"mount: %@  %@ %@", [self ID], self.mount, self.mechanic);
 		}
 		
 		// get if this is a fast mount
         scanSave = [scanner scanLocation];
         if([scanner scanUpToString: MOUNT_FAST intoString: nil] && [scanner scanString: MOUNT_FAST intoString: NULL]) {
         } else {
-            // log(LOG_GENERAL, @"No cast time entry for %@", self);
+            // PGLog( @"No cast time entry for %@", self);
             [scanner setScanLocation: scanSave];
         }
 		
@@ -615,7 +615,7 @@
 		}
     }
 	else{
-		log(LOG_GENERAL, @"[Spell] Error grabbing data for Spell ID: %@", [self ID]);
+		PGLog( @"[Spell] Error grabbing data for Spell ID: %@", [self ID]);
 	}
 }
 

@@ -633,7 +633,7 @@
 //[self populatePlayerLists]; call this when we display the profile!
 
 - (void)populatePlayerList: (id)popUpButton withGUID:(UInt64)guid{
-	log(LOG_DEV, @"Populating player list.");
+	PGLog(@"Populating player list.");
 
 	NSMenu *playerMenu = [[[NSMenu alloc] initWithTitle: @"Player List"] autorelease];
 	NSMenuItem *item;

@@ -19,7 +19,7 @@
     self = [super init];
     if (self != nil) {
         if(![NSBundle loadNibNamed: @"MobsKilledCondition" owner: self]) {
-            log(LOG_GENERAL, @"Error loading MobsKilledCondition.nib.");
+            PGLog( @"Error loading MobsKilledCondition.nib.");
             
             [self release];
             self = nil;

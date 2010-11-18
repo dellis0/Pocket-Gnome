@@ -17,7 +17,7 @@
     self = [super init];
     if (self != nil) {
         if(![NSBundle loadNibNamed: @"DistanceCondition" owner: self]) {
-            log(LOG_GENERAL, @"Error loading DistanceCondition.nib.");
+            PGLog( @"Error loading DistanceCondition.nib.");
             
             [self release];
             self = nil;

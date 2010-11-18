@@ -110,7 +110,7 @@ static InventoryController *sharedInventory = nil;
     
     NSString *name = [item name];
     if(name) {
-        // log(LOG_ITEM, @"Saving item: %@", item);
+        // PGLog(@"Saving item: %@", item);
         [_itemNameList setObject: name forKey: [NSNumber numberWithInt: [item entryID]]];
     }
 }
@@ -179,7 +179,7 @@ static InventoryController *sharedInventory = nil;
             count += [item count];
         }
     }
-    //log(LOG_ITEM, @"Found count %d for item %@", count, refItem);
+    //PGLog(@"Found count %d for item %@", count, refItem);
     return count;
 }
 
@@ -192,7 +192,7 @@ static InventoryController *sharedInventory = nil;
             count += [item count];
         }
     }
-    //log(LOG_ITEM, @"Found count %d for item %@", count, refItem);
+    //PGLog(@"Found count %d for item %@", count, refItem);
     return count;
 }
 
@@ -490,7 +490,7 @@ static InventoryController *sharedInventory = nil;
 }
 
 - (BOOL)arePlayerBagsFull{
-	//log(LOG_ITEM, @"%d == %d", [self bagSpacesAvailable], [self bagSpacesTotal]);
+	//PGLog(@"%d == %d", [self bagSpacesAvailable], [self bagSpacesTotal]);
 	return [self bagSpacesAvailable] == 0;
 }
 
@@ -564,7 +564,7 @@ static InventoryController *sharedInventory = nil;
 				if ( exclusions != nil ){
 					for ( NSString *itemName in exclusions ){
 						if ( [[item name] isCaseInsensitiveLike:itemName] ){
-							log(LOG_ITEM, @"[Mail] Removing item %@ to be mailed", item);
+							PGLog(@"[Mail] Removing item %@ to be mailed", item);
 							allItems[k][j] = nil;
 						}
 					}
@@ -576,7 +576,7 @@ static InventoryController *sharedInventory = nil;
 					for ( NSString *itemName in inclusions ){
 						if ( [[item name] isCaseInsensitiveLike:itemName] ){
 							found = YES;
-							log(LOG_ITEM, @"[Mail] Saving %@ to be mailed", item);
+							PGLog(@"[Mail] Saving %@ to be mailed", item);
 							itemsMailed++;
 							
 							// in case our exclusion removed it
@@ -586,7 +586,7 @@ static InventoryController *sharedInventory = nil;
 					
 					// we will want to check for types here, once I figure this out!
 					if ( !found ){
-						log(LOG_ITEM, @"[Mail] Removing %@ to be mailed", item);
+						PGLog(@"[Mail] Removing %@ to be mailed", item);
 						allItems[k][j] = nil;
 					}
 				}
@@ -608,11 +608,11 @@ static InventoryController *sharedInventory = nil;
 			usleep(100000);
 		}
 		else{
-			log(LOG_ITEM, @"[Mail] No mailbox found, aborting");
+			PGLog(@"[Mail] No mailbox found, aborting");
 			return 0;
 		}
 		
-		log(LOG_ITEM, @"[Mail] Found %d items to mail! Beginning process with %@!", itemsMailed, mailbox);
+		PGLog(@"[Mail] Found %d items to mail! Beginning process with %@!", itemsMailed, mailbox);
 		
 		int totalAdded = 0;
 		
@@ -621,7 +621,7 @@ static InventoryController *sharedInventory = nil;
 			
 			// we have items to mail!
 			if ( totalAdded > 0 ){
-				log(LOG_ITEM, @"[Mail] Sending %d items", totalAdded );
+				PGLog(@"[Mail] Sending %d items", totalAdded );
 				itemsMailed -= totalAdded;
 				
 				// send the mail
@@ -649,7 +649,7 @@ static InventoryController *sharedInventory = nil;
 					
 					// we have an item to mail!
 					if ( allItems[k][j] != nil ){
-						log(LOG_ITEM, @"[%d] Found item %@ to mail", totalAdded, allItems[k][j]);
+						PGLog(@"[%d] Found item %@ to mail", totalAdded, allItems[k][j]);
 						
 						// move the item to the mail
 						NSString *macroCommand = [NSString stringWithFormat:@"/script UseContainerItem(%d, %d);", k, j];
@@ -825,7 +825,7 @@ static InventoryController *sharedInventory = nil;
 	// reload table
 	[objectsController loadTabData];
 	
-    //log(LOG_ITEM, @"enumerateInventory took %.2f seconds...", [date timeIntervalSinceNow]*-1.0);
+    //PGLog(@"enumerateInventory took %.2f seconds...", [date timeIntervalSinceNow]*-1.0);
 }
 
 - (WoWObject*)objectForRowIndex:(int)rowIndex{

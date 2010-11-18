@@ -15,7 +15,7 @@
     self = [super init];
     if (self != nil) {
         if(![NSBundle loadNibNamed: @"ComboPointCondition" owner: self]) {
-            log(LOG_GENERAL, @"Error loading ComboPointCondition.nib.");
+            PGLog( @"Error loading ComboPointCondition.nib.");
             
             [self release];
             self = nil;

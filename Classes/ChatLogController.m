@@ -156,7 +156,7 @@
                     foundAt = i;
                 }
                 NSString *chatEntry = [NSString stringWithUTF8String: buffer];
-				//log(LOG_GENERAL, @"Chat found: %@", chatEntry );
+				//PGLog( @"Chat found: %@", chatEntry );
 				
                 if([chatEntry length]) {
                     // "Type: [17], Channel: [General - Whatev], Player Name: [PlayerName], Text: [Text]"
@@ -171,7 +171,7 @@
                             [chatComponents setObject: value forKey: key];
                         } else {
                             // bad data
-                            //log(LOG_GENERAL, @"Throwing out bad data: \"%@\"", component);
+                            //PGLog( @"Throwing out bad data: \"%@\"", component);
                         }
                     }
                     if([chatComponents count]) {
@@ -199,7 +199,7 @@
     }
 	
 
-	//log(LOG_GENERAL, @"[Chat] New chat scan took %.2f seconds and %d memory operations.", [date timeIntervalSinceNow]*-1.0, [memory loadCount]);
+	//PGLog( @"[Chat] New chat scan took %.2f seconds and %d memory operations.", [date timeIntervalSinceNow]*-1.0, [memory loadCount]);
 	
     
     [self performSelectorOnMainThread: @selector(scanCompleteWithNewEntries:) withObject: chatEntries waitUntilDone: YES];
@@ -362,20 +362,20 @@
                     }
                 }
                 @catch (NSException * e) {
-                    log(LOG_GENERAL, @"Could not send chat message: %@", e);
+                    PGLog( @"Could not send chat message: %@", e);
                     return NO;
                 }
                 
                 return YES;
                 
             } else {
-                log(LOG_GENERAL, @"Could not locate buddy \"%@\"!", buddyName);
+                PGLog( @"Could not locate buddy \"%@\"!", buddyName);
             }
         }
     }
     
     if(!foundService) {
-        log(LOG_GENERAL, @"Could not find active iChat service!");
+        PGLog( @"Could not find active iChat service!");
     }
     
     return NO;
@@ -419,15 +419,15 @@
             if([emailMessage send]) {
                 return YES;
             } else {
-                log(LOG_GENERAL, @"Email message could not be sent!");
+                PGLog( @"Email message could not be sent!");
             }
         }
         @catch (NSException * e) {
-            log(LOG_GENERAL, @"Email message could not be sent! %@", e);
+            PGLog( @"Email message could not be sent! %@", e);
             return NO;
         }
     } else {
-        log(LOG_GENERAL, @"No account is configured in Mail!");
+        PGLog( @"No account is configured in Mail!");
     }
     return NO;
 }
@@ -492,7 +492,7 @@
     //[self setCurrentRouteSet: routeSet];
     //[waypointTable reloadData];
     
-    // log(LOG_GENERAL, @"Added route: %@", [routeSet name]);
+    // PGLog( @"Added route: %@", [routeSet name]);
 }
 
 - (IBAction)createChatAction: (id)sender {
@@ -531,7 +531,7 @@
             }
         }
     } else {
-        log(LOG_GENERAL, @"Mail delivery is NOT configured.");
+        PGLog( @"Mail delivery is NOT configured.");
     }
 }
 
@@ -560,7 +560,7 @@
 	if ( checkWhispers ){
 		if ( [numWhispers intValue] >= [[[[NSUserDefaultsController sharedUserDefaultsController] values] valueForKey: @"AlarmWhisperedTimes"] intValue] ){
 			[[NSSound soundNamed: @"alarm"] play];
-			log(LOG_GENERAL, @"[Chat] You have been whispered %@ times by %@. Last message: %@", numWhispers, [entry playerName], [entry text] );
+			PGLog( @"[Chat] You have been whispered %@ times by %@. Last message: %@", numWhispers, [entry playerName], [entry text] );
 		}
 	}
 }

@@ -98,7 +98,7 @@ enum AutomatorIntervalType {
 			for ( RouteSet *route in routes ){
 				[fileController deleteObject:route];
 			}
-			log(LOG_WAYPOINT, @"[Routes] Converting all routes to the new format! Removing old files!");
+			PGLog( @"[Routes] Converting all routes to the new format! Removing old files!");
 		}
 		
 		// then we need to convert our routes above, I love how much I change things QQ
@@ -253,10 +253,10 @@ enum AutomatorIntervalType {
 		[allRoutes addObjectsFromArray:[rc routes]];
 	}
 	
-	/*log(LOG_WAYPOINT, @"total: %d", [allRoutes count]);
+	/*PGLog( @"total: %d", [allRoutes count]);
 	
 	for ( id item in allRoutes ){
-		log(LOG_WAYPOINT, @"%@", item);
+		PGLog( @"%@", item);
 	}
 	
 	
@@ -333,7 +333,7 @@ enum AutomatorIntervalType {
 	
 	// not of type RouteSet or RouteCollection? not sure how we would get here
 	if ( ![object isKindOfClass:[RouteSet class]] && ![object isKindOfClass:[RouteCollection class]] ){
-		log(LOG_WAYPOINT, @"[Routes] Unable to import route of type %@ (Obj:%@)", [object class], object);
+		PGLog( @"[Routes] Unable to import route of type %@ (Obj:%@)", [object class], object);
 		return;
 	}
 	
@@ -386,7 +386,7 @@ enum AutomatorIntervalType {
     
     if ( importedRoute ) {
 		
-		log(LOG_WAYPOINT, @"%@", importedRoute);
+		PGLog( @"%@", importedRoute);
 		
 		// single RouteSet
         if ( [importedRoute isKindOfClass: [RouteSet class]] ) {
@@ -448,7 +448,7 @@ enum AutomatorIntervalType {
 	if ( closestWaypointRow > 0 ){
 		[waypointTable selectRow:closestWaypointRow byExtendingSelection:NO];
 		[waypointTable scrollRowToVisible:closestWaypointRow];
-		log(LOG_WAYPOINT, @"[Waypoint] Closest waypoint is %0.2f yards away", minDist);
+		PGLog( @"[Waypoint] Closest waypoint is %0.2f yards away", minDist);
 	}
 }
 
@@ -475,7 +475,7 @@ enum AutomatorIntervalType {
 }
 
 - (IBAction)addWaypoint: (id)sender {
-    log(LOG_DEV, @"addWaypoint called");
+    PGLog(@"addWaypoint called");
     if(![self currentRoute])        return;
     if(![playerData playerIsValid:self]) return;
     if(![self.view window])         return;
@@ -484,7 +484,7 @@ enum AutomatorIntervalType {
     [[self currentRoute] addWaypoint: newWP];
     [waypointTable reloadData];
 	[self currentRouteSet].changed = YES;
-    log(LOG_WAYPOINT, @"Added: %@", newWP);
+    PGLog( @"Added: %@", newWP);
     NSString *readableRoute =  ([routeTypeSegment selectedTag] == 0) ? @"Primary" : @"Corpse Run";
     
     BOOL dontGrowl = (!sender && self.disableGrowl); // sender is nil when this is called by the automator
@@ -521,7 +521,7 @@ enum AutomatorIntervalType {
     // make sure the clicked row is valid
     if ( [waypointTable clickedRow] < 0 || [waypointTable clickedRow] >= [[self currentRoute] waypointCount] ) {
         NSBeep();
-        log(LOG_WAYPOINT, @"Error: invalid row (%d), cannot change action.", [waypointTable clickedRow]);
+        PGLog( @"Error: invalid row (%d), cannot change action.", [waypointTable clickedRow]);
         return;
     }
     
@@ -611,7 +611,7 @@ enum AutomatorIntervalType {
 - (IBAction)startStopAutomator: (id)sender {
 	// OK stop automator!
 	if ( self.isAutomatorRunning ) {
-		log(LOG_WAYPOINT, @"Waypoint recording stopped");
+		PGLog( @"Waypoint recording stopped");
 		self.isAutomatorRunning = NO;
         [automatorSpinner stopAnimation: nil];
         [automatorStartStopButton setState: NSOffState];
@@ -619,7 +619,7 @@ enum AutomatorIntervalType {
         [automatorStartStopButton setImage: [NSImage imageNamed: @"off"]];
 	}
 	else {
-		log(LOG_WAYPOINT, @"Waypoint recording started");
+		PGLog( @"Waypoint recording started");
         [automatorPanel makeFirstResponder: [automatorPanel contentView]];
 		self.isAutomatorRunning = YES;
         [automatorSpinner startAnimation: nil];
@@ -914,11 +914,11 @@ enum AutomatorIntervalType {
 		if(!data) return NO;
 		NSIndexSet* rowIndexes = [NSKeyedUnarchiver unarchiveObjectWithData: data];
 		if(!rowIndexes ) {
-			log(LOG_WAYPOINT, @"Error dragging waypoints. Indexes invalid.");
+			PGLog( @"Error dragging waypoints. Indexes invalid.");
 			return NO;
 		}
 		
-		// log(LOG_WAYPOINT, @"Draggin %d rows to above row %d", [rowIndexes count], row);
+		// PGLog( @"Draggin %d rows to above row %d", [rowIndexes count], row);
 		
 		Waypoint *targetWP = [[self currentRoute] waypointAtIndex: row];
 		NSMutableArray *wpToInsert = [NSMutableArray arrayWithCapacity: [rowIndexes count]];
@@ -935,7 +935,7 @@ enum AutomatorIntervalType {
 		// now, find the current index of the saved waypoint
 		int index = [[[self currentRoute] waypoints] indexOfObjectIdenticalTo: targetWP];
 		if(index == NSNotFound) index = [[self currentRoute] waypointCount];
-		// log(LOG_WAYPOINT, @"Target index: %d", index);
+		// PGLog( @"Target index: %d", index);
 		
 		// don't need to reverseEnum because the order is already reversed
 		for (Waypoint *wp in wpToInsert) {
@@ -947,7 +947,7 @@ enum AutomatorIntervalType {
 		 int numIns = 0;
 		 int dragRow = [rowIndexes firstIndex];
 		 if(dragRow < row) { 
-		 log(LOG_WAYPOINT, @" --> Decrementing row to %d because dragRow (%d) < row (%d)", row-1, dragRow, row);
+		 PGLog( @" --> Decrementing row to %d because dragRow (%d) < row (%d)", row-1, dragRow, row);
 		 row--;
 		 }
 		 
@@ -959,7 +959,7 @@ enum AutomatorIntervalType {
 		 [[self currentRoute] removeWaypointAtIndex: dragRow];
 		 [[self currentRoute] insertWaypoint: dragWaypoint atIndex: (row + numIns)];
 		 
-		 log(LOG_WAYPOINT, @" --> Moving row %d to %d", dragRow, (row + numIns));
+		 PGLog( @" --> Moving row %d to %d", dragRow, (row + numIns));
 		 
 		 numIns++;
 		 dragRow = [rowIndexes indexGreaterThanIndex: dragRow];
@@ -1179,7 +1179,7 @@ enum AutomatorIntervalType {
 	if ( outlineView == routesTable ){
 		
 		if ( ![item isKindOfClass:[RouteCollection class]] ){
-			log(LOG_WAYPOINT, @"Not doing anything with %@", item);
+			PGLog( @"Not doing anything with %@", item);
 			return NO;
 		}
 	
@@ -1277,7 +1277,7 @@ enum AutomatorIntervalType {
 			[self selectItemInOutlineViewToEdit:route];
 		}
 		else{
-			log(LOG_WAYPOINT, @"[Routes] Error when adding a set! Report to Tanaris4! %@", selectedItem);
+			PGLog( @"[Routes] Error when adding a set! Report to Tanaris4! %@", selectedItem);
 			NSBeep();
 			NSRunAlertPanel(@"Error when adding route", @"Error when adding route! Report to Tanaris4 + give him logs!", @"Okay", NULL, NULL);
 		}

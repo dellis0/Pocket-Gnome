@@ -18,7 +18,7 @@
 		_maxWaypoints = 0;
 
         if(![NSBundle loadNibNamed: @"JumpToWaypointAction" owner: self]) {
-            log(LOG_GENERAL, @"Error loading JumpToWaypointAction.nib.");
+            PGLog( @"Error loading JumpToWaypointAction.nib.");
             
             [self release];
             self = nil;

@@ -15,8 +15,7 @@
 
 @implementation Plugin
 
-- (id) init
-{
+- (id) init{
     self = [super init];
     if (self != nil) {
         _path = nil;

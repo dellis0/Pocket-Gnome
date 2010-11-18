@@ -121,7 +121,7 @@
   withSchool:(Node*)nearbySchool
 {
 	
-	log(LOG_DEV, @"[Fishing] Fishing...");
+	PGLog(@"[Fishing] Fishing...");
 	
 	if ( nearbySchool && [nearbySchool isValid] ){
 		[self facePool:nearbySchool];
@@ -159,12 +159,12 @@
 	
 	// are we on the ground? if not lets delay our cast a bit
 	if ( ![[playerController player] isOnGround] ){
-		log(LOG_FISHING, @"Falling, fishing soon...");
+		PGLog(@"Falling, fishing soon...");
 		[self performSelector:@selector(fishCast) withObject:nil afterDelay:2.0f];
 	}
 	// start fishing if we're on the ground
 	else{
-		log(LOG_DEV, @"[Fishing] On ground, fishing!");
+		PGLog(@"[Fishing] On ground, fishing!");
 		[self fishCast];
 	}
 }
@@ -183,7 +183,7 @@
 	
 	// loot window open?  check again shortly
 	if ( [lootController isLootWindowOpen] ){
-		log(LOG_FISHING, @"Loot window is open! Attempting to loot");
+		PGLog(@"Loot window is open! Attempting to loot");
 		
 		// cancel previous requests if any
 		[NSObject cancelPreviousPerformRequestsWithTarget: self];
@@ -200,7 +200,7 @@
 		
 		[self stopFishing];
 		
-		log(LOG_FISHING, @"[Eval] Fishing - school gone");
+		PGLog(@"[Eval] Fishing - school gone");
 		[botController evaluateSituation];
 		return;
 	}
@@ -232,7 +232,7 @@
 		[botController performAction: _fishingSpellID];
 		_castStartTime = [[NSDate date] retain];
 		[controller setCurrentStatus: @"Bot: Fishing"];
-		log(LOG_FISHING, @"Casting!");
+		PGLog(@"Casting!");
 		
 		// find out bobber so we can monitor it!
 		[self performSelector:@selector(findBobber) withObject:nil afterDelay:2.0f];
@@ -240,7 +240,7 @@
 		_castNumber++;
 	}
 	else{
-		if ( ![playerController isCasting] ) log(LOG_FISHING, @"Cast attempted failed. Trying again in 2 seconds...");
+		if ( ![playerController isCasting] ) PGLog(@"Cast attempted failed. Trying again in 2 seconds...");
 		// try again soon?
 		[NSObject cancelPreviousPerformRequestsWithTarget:self selector:_cmd object:nil];
 		[self performSelector:@selector(fishCast) withObject:nil afterDelay:2.0f];
@@ -272,7 +272,7 @@
 		Item *item = [itemController itemForGUID: [[playerController player] itemGUIDinSlot: SLOT_MAIN_HAND]];
 		if ( ![item hasTempEnchantment] && _applyLureAttempts < 3 ){
 			
-			log(LOG_DEV, @"[Fishing] Using lure: %d on item %d", _optLureItemID, [item entryID]);
+			PGLog(@"[Fishing] Using lure: %d on item %d", _optLureItemID, [item entryID]);
 			
 			// Lets actually use the item we want to apply!
 			[botController performAction:(USE_ITEM_MASK + _optLureItemID)];
@@ -293,13 +293,13 @@
 			if ( [playerController spellCasting] > 0 && ![self isPlayerFishing] ){
 				_applyLureAttempts = 0;
 				
-				log(LOG_FISHING, @"Applying lure");
+				PGLog(@"Applying lure");
 				
 				// This will "pause" our main thread until this is complete!
 				usleep(3500000);
 			}
 			else{
-				log(LOG_FISHING, @"Lure application failed!");
+				PGLog(@"Lure application failed!");
 				_applyLureAttempts++;
 			}
 			
@@ -307,7 +307,7 @@
 		}
 	}
 	else{
-		log(LOG_FISHING, @"Player is out of lures, not applying...");
+		PGLog(@"Player is out of lures, not applying...");
 	}
 	
 	return NO;
@@ -316,7 +316,7 @@
 - (void)facePool:(Node*)school{
 	// turn toward
 	if ( ![_facedSchool containsObject:school] ){
-		log(LOG_FISHING, @"Turning toward %@", school);
+		PGLog(@"Turning toward %@", school);
 		[movementController turnTowardObject:school];
 	}
 	
@@ -344,7 +344,7 @@
 				// Is our bobber normal yet?
 				if ( status == STATUS_NORMAL ){
 					
-					log(LOG_FISHING, @"Bobber found, monitoring");
+					PGLog(@"Bobber found, monitoring");
 					[self monitorBobber:[bobber retain]];
 					return;
 				}
@@ -354,11 +354,11 @@
 	
 	// only keep looking if we're fishing
 	if ( [self isPlayerFishing] ){
-		log(LOG_FISHING, @"Bobber, not found, searching again...");
+		PGLog(@"Bobber, not found, searching again...");
 		[self performSelector:@selector(findBobber) withObject:nil afterDelay:0.1f];
 	}
 	else{
-		log(LOG_FISHING, @"No longer fishing, bobber scan stopped");
+		PGLog(@"No longer fishing, bobber scan stopped");
 		
 		// fish again!
 		_ignoreIsFishing = YES;
@@ -377,7 +377,7 @@
 	
 	// verify our bobber is still good!
 	if ( !bobber || ![bobber isValid] ){
-		log(LOG_FISHING, @"Our bobber is invalid :(");
+		PGLog(@"Our bobber is invalid :(");
 		
 		// make sure we don't try to watch this node next
 		//[nodeController finishedNode:bobber];
@@ -406,8 +406,8 @@
 	UInt16 bouncing=0;
 	if ( [memory loadDataForObject: self atAddress: ([bobber baseAddress] + OFFSET_MOVED) Buffer: (Byte *)&bouncing BufLength: sizeof(bouncing)] ){
 		
-		log(LOG_DEV, @"[Fishing] Bobber Bouncing: %d", bouncing);
-		if (bouncing) log(LOG_FISHING, @"The bobber is Bouncing!");
+		PGLog(@"[Fishing] Bobber Bouncing: %d", bouncing);
+		if (bouncing) PGLog(@"The bobber is Bouncing!");
 		
 		// it's bouncing!
 		if ( bouncing ){
@@ -434,7 +434,7 @@
 		
 		// bobber is no longer valid :/ (player could move or stop casting)
 		if ( status != STATUS_NORMAL ){
-			log(LOG_FISHING, @"Bobber invalid, re-casting");
+			PGLog(@"Bobber invalid, re-casting");
 			_ignoreIsFishing = YES;
 			
 			[self fishCast];
@@ -464,14 +464,14 @@
 			[lootController acceptLoot];
 		}
 		
-		log(LOG_DEV, @"Verifying loot attempt %d", _lootAttempt);
+		PGLog(@"Verifying loot attempt %d", _lootAttempt);
 		
 		[self performSelector:@selector(verifyLoot) withObject:nil afterDelay:0.1f];
 	}
 	
 	// just in case the item notification doesn't fire off
 	else{
-		log(LOG_DEV, @"Attempting to cast in 3.0 seconds");
+		PGLog(@"Attempting to cast in 3.0 seconds");
 		[self performSelector:@selector(fishCast) withObject:nil afterDelay:3.0f];
 	}
 }
@@ -488,7 +488,7 @@
 	_totalFishLooted++;
 	
 	NSDate *currentTime = [NSDate date];
-	log(LOG_FISHING, @"Fish looted after %0.2f seconds.", [currentTime timeIntervalSinceDate: _castStartTime]);
+	PGLog(@"Fish looted after %0.2f seconds.", [currentTime timeIntervalSinceDate: _castStartTime]);
 	
 	[self performSelector:@selector(fishCast) withObject:nil afterDelay:0.1f];
 }
@@ -531,9 +531,9 @@
  pt.x = xPosToClick;
  
  
- log(LOG_FISHING, @"Origin: {%0.2f, %0.2f} Dimensions: {%0.2f, %0.2f}", wowSize.origin.x, wowSize.origin.y, wowSize.size.width, wowSize.size.height);
+ PGLog(@"Origin: {%0.2f, %0.2f} Dimensions: {%0.2f, %0.2f}", wowSize.origin.x, wowSize.origin.y, wowSize.size.width, wowSize.size.height);
  
- log(LOG_FISHING, @"Clicking {%0.2f, %0.2f}", xPosToClick, yPosToClick);
+ PGLog(@"Clicking {%0.2f, %0.2f}", xPosToClick, yPosToClick);
  
  if ( ![controller isWoWFront] ){
  [controller makeWoWFront];

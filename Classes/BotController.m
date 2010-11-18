@@ -30,9 +30,20 @@
 #import "Behavior.h"
 #import "PvPBehavior.h"
 #import "CombatProfile.h"
+#import "PluginController.h"
 
 #import "PTHeader.h"
 #import <ShortcutRecorder/ShortcutRecorder.h>
+
+#import "Event.h"
+
+
+@interface BotController ()
+
+@property (readwrite, assign) BOOL useRoute;
+@property (readwrite, assign) BOOL useRoutePvP;
+
+@end
 
 @implementation BotController
 
@@ -149,5 +160,44 @@
 	
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
+#pragma mark UI
+
+- (IBAction)startBot: (id)sender{
+	
+	// get information from the UI so plugins don't have to!	
+	_useRoute = [[[NSUserDefaults standardUserDefaults] objectForKey: @"UseRoute"] boolValue];
+	_useRoutePvP = [[[NSUserDefaults standardUserDefaults] objectForKey: @"UseRoutePvP"] boolValue];
+	
+    if ( self.useRoute ) {
+		self.theRouteCollection = [[routePopup selectedItem] representedObject];
+		self.theRouteSet = [_theRouteCollection startingRoute];
+    } else {
+		self.theRouteSet = nil;
+		self.theRouteCollection = nil;
+    }
+	
+	self.theBehavior = [[behaviorPopup selectedItem] representedObject];
+    self.theCombatProfile = [[combatProfilePopup selectedItem] representedObject];
+	
+	if ( self.useRoutePvP )
+		self.pvpBehavior = [[routePvPPopup selectedItem] representedObject];
+	else
+		self.pvpBehavior = nil;
+	
+	// fire LUA event
+	[pluginController performEvent:E_BOT_START withObject:nil];
+}
+- (IBAction)stopBot: (id)sender{
+	
+	
+	// fire LUA event
+	[pluginController performEvent:E_BOT_STOP withObject:nil];
+}
+
+- (IBAction)test: (id)sender{
+	[pluginController performEvent:E_BOT_START withObject:nil];
+}
+
 
 @end

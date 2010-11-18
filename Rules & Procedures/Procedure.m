@@ -101,7 +101,7 @@
         [_rules addObject: rule];
 	}
     else{
-        log(LOG_GENERAL, @"addRule: failed; rule is nil");
+        PGLog( @"addRule: failed; rule is nil");
 	}
 }
 
@@ -110,7 +110,7 @@
         [_rules insertObject: rule atIndex: index];
 	}
     else{
-        log(LOG_GENERAL, @"insertRule:atIndex: failed; rule %@ index %d is out of bounds", rule, index);
+        PGLog( @"insertRule:atIndex: failed; rule %@ index %d is out of bounds", rule, index);
 	}
 }
 
@@ -120,7 +120,7 @@
         [_rules replaceObjectAtIndex: index withObject: rule];
     }
 	else{
-        log(LOG_GENERAL, @"replaceRule:atIndex: failed; either rule is nil or index is out of bounds");
+        PGLog( @"replaceRule:atIndex: failed; either rule is nil or index is out of bounds");
 	}
 }
 

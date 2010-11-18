@@ -15,7 +15,7 @@
     self = [super init];
     if (self != nil) {
         if(![NSBundle loadNibNamed: @"LastSpellCast" owner: self]) {
-            log(LOG_GENERAL, @"Error loading LastSpellCast.nib.");
+            PGLog( @"Error loading LastSpellCast.nib.");
             
             [self release];
             self = nil;

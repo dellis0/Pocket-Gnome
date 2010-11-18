@@ -32,6 +32,7 @@
 @class ProfileController;
 @class PluginController;
 @class ChatController;
+@class MovementController;
 
 #define MemoryAccessValidNotification       @"MemoryAccessValidNotification"
 #define MemoryAccessInvalidNotification     @"MemoryAccessInvalidNotification"
@@ -66,6 +67,7 @@ BOOL Ascii2Virtual(char pcar, BOOL *pshift, BOOL *palt, char *pkeycode);
 	IBOutlet PvPController			*pvpController;
 	IBOutlet ProfileController		*profileController;
 	IBOutlet PluginController		*pluginController;
+	IBOutlet MovementController		*movementController;
 	
     IBOutlet id mainWindow;
     IBOutlet NSToolbar *mainToolbar;
@@ -186,6 +188,8 @@ BOOL Ascii2Virtual(char pcar, BOOL *pshift, BOOL *palt, char *pkeycode);
 
 // LUA Connectors
 @property (readonly) BotController			*botController;
+@property (readonly) MovementController		*movementController;
+@property (readonly) ChatController			*chatController;
 //@property (readonly) FishController			*fishController;
 /*@property (readonly) ChatController			*chatController;
 @property (readonly) ChatLogController			*chatLogController;
@@ -200,7 +204,7 @@ BOOL Ascii2Virtual(char pcar, BOOL *pshift, BOOL *palt, char *pkeycode);
 @property (readonly) BotController *botController;
 @property (readonly) BotController *botController;
 @property (readonly) BotController *botController;*/
-@property (readonly) ChatController *chatController;
+
 
 @end
 
