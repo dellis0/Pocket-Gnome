@@ -188,6 +188,7 @@
 		1D3E59C8128BD7B500ED035D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D3E59C6128BD7B500ED035D /* Info.plist */; };
 		1D3E59DD128BD7FF00ED035D /* AppDelegate.lua in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D3E59C5128BD7B500ED035D /* AppDelegate.lua */; };
 		1D3E59DE128BD7FF00ED035D /* Info.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D3E59C6128BD7B500ED035D /* Info.plist */; };
+		49C6C52F17C2AD5E00C21CCF /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C6C52E17C2AD5E00C21CCF /* libz.1.2.3.dylib */; };
 		610EF61C126F924000601DBF /* Plugins.xib in Resources */ = {isa = PBXBuildFile; fileRef = 610EF61B126F924000601DBF /* Plugins.xib */; };
 		614CD78A1106182100BA1B2F /* Bot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 614CD7891106182100BA1B2F /* Bot.xib */; };
 		6E8FA56D128085F600222D89 /* wax_http.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8FA545128085F600222D89 /* wax_http.m */; };
@@ -216,7 +217,6 @@
 		7D1B39C50F897721005CA0CD /* Message.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D1B39C40F897721005CA0CD /* Message.framework */; };
 		7D1B3A220F89860D005CA0CD /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D1B3A210F89860D005CA0CD /* ScriptingBridge.framework */; };
 		7D1B3A5C0F898887005CA0CD /* Mail.app in Sources */ = {isa = PBXBuildFile; fileRef = 7D1B3A560F89885D005CA0CD /* Mail.app */; };
-		7D1B3A960F898D90005CA0CD /* iChat.app in Sources */ = {isa = PBXBuildFile; fileRef = 7D1B3A940F898D89005CA0CD /* iChat.app */; };
 		7D1B3B8D0F89ACE9005CA0CD /* Mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1B3B8C0F89ACE9005CA0CD /* Mail.png */; };
 		7D1B3B8F0F89AD22005CA0CD /* iChat.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1B3B8E0F89AD22005CA0CD /* iChat.png */; };
 		7D1BEDF00F8717CF00DF5FBF /* ChatLogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BEDEF0F8717CF00DF5FBF /* ChatLogController.m */; };
@@ -368,7 +368,6 @@
 		7DAD11660E117BF000B0F7BD /* Macro.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD11650E117BF000B0F7BD /* Macro.m */; };
 		7DB0ABC90EABED7F00B81BC1 /* FactionTemplate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DB0ABC80EABED7F00B81BC1 /* FactionTemplate.plist */; };
 		7DB0ADE50EB02F0C00B81BC1 /* Aura.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB0ADE40EB02F0C00B81BC1 /* Aura.m */; };
-		7DB260D50DB30922007DB867 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB260D40DB30922007DB867 /* libz.1.2.3.dylib */; };
 		7DB2C44A0D3BFE4100100B4D /* BotController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB2C4490D3BFE4100100B4D /* BotController.m */; };
 		7DB8222A0E33382900661394 /* TempEnchantCondition.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DB822290E33382900661394 /* TempEnchantCondition.xib */; };
 		7DB8222F0E33384300661394 /* TempEnchantConditionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8222E0E33384300661394 /* TempEnchantConditionController.m */; };
@@ -882,6 +881,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		49C6C52D17C2AB3300C21CCF /* iChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iChat.h; sourceTree = "<group>"; };
+		49C6C52E17C2AD5E00C21CCF /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		610EF61B126F924000601DBF /* Plugins.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Plugins.xib; sourceTree = "<group>"; };
 		614CD7891106182100BA1B2F /* Bot.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Bot.xib; sourceTree = "<group>"; };
 		6E8FA544128085F600222D89 /* wax_http.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wax_http.h; sourceTree = "<group>"; };
@@ -929,7 +930,6 @@
 		7D1B39C40F897721005CA0CD /* Message.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Message.framework; path = /System/Library/Frameworks/Message.framework; sourceTree = "<absolute>"; };
 		7D1B3A210F89860D005CA0CD /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
 		7D1B3A560F89885D005CA0CD /* Mail.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Mail.app; path = /Applications/Mail.app; sourceTree = "<absolute>"; };
-		7D1B3A940F898D89005CA0CD /* iChat.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = iChat.app; path = /Applications/iChat.app; sourceTree = "<absolute>"; };
 		7D1B3B8C0F89ACE9005CA0CD /* Mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mail.png; sourceTree = "<group>"; };
 		7D1B3B8E0F89AD22005CA0CD /* iChat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iChat.png; sourceTree = "<group>"; };
 		7D1BEDEE0F8717CF00DF5FBF /* ChatLogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatLogController.h; sourceTree = "<group>"; };
@@ -1142,7 +1142,7 @@
 		7DB0ABC80EABED7F00B81BC1 /* FactionTemplate.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FactionTemplate.plist; sourceTree = "<group>"; };
 		7DB0ADE30EB02F0C00B81BC1 /* Aura.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aura.h; sourceTree = "<group>"; };
 		7DB0ADE40EB02F0C00B81BC1 /* Aura.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aura.m; sourceTree = "<group>"; };
-		7DB260D40DB30922007DB867 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = /usr/lib/libz.1.2.3.dylib; sourceTree = "<absolute>"; };
+		7DB260D40DB30922007DB867 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = /usr/lib/libz.1.2.5.dylib; sourceTree = "<absolute>"; };
 		7DB2C4480D3BFE4100100B4D /* BotController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BotController.h; sourceTree = "<group>"; };
 		7DB2C4490D3BFE4100100B4D /* BotController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BotController.m; sourceTree = "<group>"; };
 		7DB822290E33382900661394 /* TempEnchantCondition.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TempEnchantCondition.xib; sourceTree = "<group>"; };
@@ -1246,7 +1246,7 @@
 		7DF445520E241ABA0075B96B /* TotemConditionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotemConditionController.m; sourceTree = "<group>"; };
 		7DF445540E241AE30075B96B /* TotemCondition.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotemCondition.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* Pocket Gnome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pocket Gnome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* ggteabag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ggteabag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8F38451289E8A6004E1714 /* PocketGnome_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketGnome_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		D02F3C541182C37E000F4037 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
 		D02F3C551182C37E000F4037 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
@@ -1263,9 +1263,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C6C52F17C2AD5E00C21CCF /* libz.1.2.3.dylib in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				7DAAE7630D148995003F1E3C /* Security.framework in Frameworks */,
-				7DB260D50DB30922007DB867 /* libz.1.2.3.dylib in Frameworks */,
 				7D2167F40DC4581700D5A815 /* Carbon.framework in Frameworks */,
 				7DBF31C60E94679500A592BD /* Growl.framework in Frameworks */,
 				7D1B39C50F897721005CA0CD /* Message.framework in Frameworks */,
@@ -1701,7 +1701,7 @@
 			children = (
 				030604B61088140000C57D77 /* ShortcutRecorder.framework */,
 				7DBF31C50E94679500A592BD /* Growl.framework */,
-				7DB260D40DB30922007DB867 /* libz.1.2.3.dylib */,
+				7DB260D40DB30922007DB867 /* libz.1.2.5.dylib */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -1709,7 +1709,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* Pocket Gnome.app */,
+				8D1107320486CEB800E47090 /* ggteabag.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1735,6 +1735,7 @@
 		29B97314FDCFA39411CA2CEA /* WoWWaypoint */ = {
 			isa = PBXGroup;
 			children = (
+				49C6C52E17C2AD5E00C21CCF /* libz.1.2.3.dylib */,
 				03627C4E126DD482001BD472 /* Plugins */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				7D97730C0D2DBF2800E6D8F9 /* GUI Controllers */,
@@ -1748,7 +1749,6 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				7D1B3A560F89885D005CA0CD /* Mail.app */,
-				7D1B3A940F898D89005CA0CD /* iChat.app */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -1758,6 +1758,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				49C6C52D17C2AB3300C21CCF /* iChat.h */,
 				BA8F38451289E8A6004E1714 /* PocketGnome_Prefix.pch */,
 				7D41E8B60DEA31DD00118EA0 /* ImageAndTextCell.h */,
 				7D41E8B70DEA31DD00118EA0 /* ImageAndTextCell.m */,
@@ -2458,7 +2459,7 @@
 			name = "Pocket Gnome";
 			productInstallPath = "$(HOME)/Applications";
 			productName = WoWWaypoint;
-			productReference = 8D1107320486CEB800E47090 /* Pocket Gnome.app */;
+			productReference = 8D1107320486CEB800E47090 /* ggteabag.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2471,6 +2472,7 @@
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Pocket Gnome" */;
 			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -2710,7 +2712,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D1B3A960F898D90005CA0CD /* iChat.app in Sources */,
 				7D1B3A5C0F898887005CA0CD /* Mail.app in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				7DAAE71A0D148972003F1E3C /* Controller.m in Sources */,
